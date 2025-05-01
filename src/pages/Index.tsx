@@ -6,13 +6,19 @@ import { VSLWhite } from '../components/VSLWhite';
 import ViewerCounter from '../components/ViewerCounter';
 import CommentSection from '../components/CommentSection';
 import { useTrafficFilter } from '../hooks/useTrafficFilter';
+import { UTMifyPixel } from '../components/UTMifyPixel';
+import { useBackRedirect } from '../hooks/useBackRedirect';
 
 const Index = () => {
   const { isBlack } = useTrafficFilter();
 
+  // Adiciona o backredirect para a página de promo
+  useBackRedirect('/promo');
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
+      <UTMifyPixel />
       <NewsTicker />
       
       <main className="flex-1 container mx-auto px-4 py-6">
