@@ -1,7 +1,6 @@
-
 import React from 'react';
 import Header from '../components/Header';
-import VideoPlaceholder from '../components/VideoPlaceholder';
+import { VideoPlayer } from '../components/VideoPlayer';
 import ViewerCounter from '../components/ViewerCounter';
 import CommentSection from '../components/CommentSection';
 
@@ -16,7 +15,7 @@ const Index = () => {
             <span className="text-salud-red">EXCLUSIVO:</span> Especialista revela receta de Ozempic Natural que quema hasta 9kg en 14 días
           </h2>
           
-          <VideoPlaceholder />
+          <VideoPlayer />
           
           <ViewerCounter />
           
