@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 type CommentType = {
@@ -7,6 +6,7 @@ type CommentType = {
   content: string;
   likes: number;
   timeAgo: string;
+  profileImage?: string;
   replies?: number;
 };
 
@@ -14,10 +14,17 @@ const Comment = ({ comment }: { comment: CommentType }) => {
   return (
     <div className="flex mb-4 border-b pb-4">
       <div className="w-12 h-12 rounded-full bg-gray-300 mr-4 flex-shrink-0 overflow-hidden">
-        {/* Avatar de usuario genérico */}
-        <div className="w-full h-full bg-gray-400 flex items-center justify-center text-white font-bold">
-          {comment.name.charAt(0)}
-        </div>
+        {comment.profileImage ? (
+          <img 
+            src={`/images/profiles/${comment.profileImage}`} 
+            alt={`${comment.name}'s profile`}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-400 flex items-center justify-center text-white font-bold">
+            {comment.name.charAt(0)}
+          </div>
+        )}
       </div>
       <div className="flex-1">
         <h4 className="font-bold text-sm">{comment.name}</h4>
@@ -42,14 +49,16 @@ const CommentSection = () => {
       name: "Paula Díaz",
       content: "Dr Marcos, llevo 15 días consecutivos tomando la receta que me has preparado. Perdí 9 kilos y reduje mi cintura en 10 centímetros. Continuaré tomándolo y estoy encantada! 😊",
       likes: 24,
-      timeAgo: "12 m"
+      timeAgo: "12 m",
+      profileImage: "profile-1.jpg"
     },
     {
       id: 2,
       name: "Simone Miranda",
       content: "¡Voy a preparar la receta ahora! ¡Gracias por compartir!",
       likes: 19,
-      timeAgo: "12 m"
+      timeAgo: "12 m",
+      profileImage: "profile-2.jpg"
     },
     {
       id: 3,
