@@ -65,33 +65,37 @@ const CommentSection = () => {
       name: "María Sánchez",
       content: "¡FINALMENTE ALGUIEN CON ALGO QUE FUNCIONA! ¡GRACIAS! EMPECÉ HOY Y ME ENCANTA.",
       likes: 12,
-      timeAgo: "14 m"
+      timeAgo: "14 m",
+      profileImage: "profile-3.jpg"
     },
     {
       id: 4,
       name: "Lucía Vega",
       content: "Hace 16 días que estoy tomando el ozempic natural y ya he perdido 7 kilos y 600 gramos 🥰👏",
       likes: 34,
-      timeAgo: "17 m"
+      timeAgo: "17 m",
+      profileImage: "profile-4.jpg"
     },
     {
       id: 5,
       name: "Teresa López",
       content: "FINALMENTE ALGUIEN QUE NO ANDA CON RODEOS PARA PEDIR DINERO AL FINAL. ¡GRACIAS! EMPECÉ HOY ❤️❤️",
       likes: 56,
-      timeAgo: "42 m"
+      timeAgo: "42 m",
+      profileImage: "profile-5.jpg"
     },
     {
       id: 6,
       name: "Carmen Alonso",
       content: "Lo explicas muy bien, eso es lo que necesitamos los laicos. Voy a empezar a tomar ozempic natural hoy mismo.",
       likes: 48,
-      timeAgo: "56 m"
+      timeAgo: "56 m",
+      profileImage: "profile-6.jpg"
     }
   ];
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-4 shadow-sm my-6">
+    <div className="max-w-2xl mx-auto bg-white p-4 shadow-sm my-6 border border-gray-200 rounded-lg">
       <div className="text-sm text-gray-600 mb-4 border-b pb-2">
         Mostrando 6 de 1.567 comentarios
       </div>

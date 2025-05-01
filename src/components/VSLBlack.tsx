@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export function VideoPlayer() {
+export function VSLBlack() {
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/68138bd75fa484f00d83abda/player.js";
