@@ -69,9 +69,12 @@ const Promo = () => {
           <p className="text-base text-gray-800 mb-3 font-medium">
             👉 Toca el botón y empieza tu cambio ahora:
           </p>
-          <button className="w-full max-w-md bg-gradient-to-r from-salud-red to-red-600 hover:from-red-600 hover:to-salud-red text-white font-bold py-3 px-4 rounded-lg text-base transition-all transform hover:scale-105 shadow-lg">
+          <a 
+            href="https://pay.hotmart.com/V99520801N?off=esebil5f&checkoutMode=10"
+            className="inline-block w-full max-w-md bg-gradient-to-r from-salud-red to-red-600 hover:from-red-600 hover:to-salud-red text-white font-bold py-3 px-4 rounded-lg text-base transition-all transform hover:scale-105 shadow-lg"
+          >
             QUIERO BAJAR DE PESO DE FORMA NATURAL
-          </button>
+          </a>
         </div>
       </main>
     </div>
