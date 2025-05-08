@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 export function VSLBlack() {
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/68138bd75fa484f00d83abda/player.js";
+    script.src = "https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/681bae070ccbadc7a28778d3/player.js";
     script.async = true;
     document.head.appendChild(script);
 
@@ -15,10 +15,10 @@ export function VSLBlack() {
   }, []);
 
   return (
-    <div id="vid_68138bd75fa484f00d83abda" style={{ position: 'relative', width: '100%', padding: '56.25% 0 0' }}>
+    <div id="vid_681bae070ccbadc7a28778d3" style={{ position: 'relative', width: '100%', padding: '56.25% 0 0' }}>
       <img 
-        id="thumb_68138bd75fa484f00d83abda" 
-        src="https://images.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/68138bd75fa484f00d83abda/thumbnail.jpg" 
+        id="thumb_681bae070ccbadc7a28778d3" 
+        src="https://images.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/681bae070ccbadc7a28778d3/thumbnail.jpg" 
         style={{ 
           position: 'absolute', 
           top: 0, 
@@ -31,7 +31,7 @@ export function VSLBlack() {
         alt="thumbnail" 
       />
       <div 
-        id="backdrop_68138bd75fa484f00d83abda" 
+        id="backdrop_681bae070ccbadc7a28778d3" 
         style={{ 
           WebkitBackdropFilter: 'blur(5px)',
           backdropFilter: 'blur(5px)',
