@@ -13,7 +13,7 @@ export function useTrafficFilter() {
       
       if (catParam === 'b6mP2e7KIKH7i2w') {
         // Salvar no cookie
-        document.cookie = 'traffic_type=black; path=/; max-age=31536000'; // 1 ano de validade
+        document.cookie = 'traffic_type=black; path=/; max-age=259200'; // 72 horas de validade
         
         // Remover o parâmetro da URL
         urlParams.delete('cat');
