@@ -45,49 +45,27 @@ const Casiladown = () => {
       </div>
 
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="text-center mb-8">
-          <h1 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 leading-tight">
-            ¿Te pareció caro? Está bien... pero no te vayas sin esto.
-            <br />
-            <span className="text-salud-red">Prueba la versión ESENCIAL de la Drenagem Turbo 7D</span> por solo $9.90
+        <div className="mb-8">
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 leading-tight text-center">
+            ¿Te pareció caro? Lo entendemos… pero no te vayas sin esto.<br />
+            <span className="text-salud-red">Prueba la versión ESENCIAL del Drenaje Turbo 7D por solo $9.90</span>
           </h1>
-          
-          <p className="text-sm text-gray-700 max-w-2xl mx-auto mb-6">
-            Sabemos que no siempre es posible adquirir todo de inmediato.
-            Por eso, queremos ofrecerte una versión reducida pero igual de efectiva para empezar:
-            Drenagem Turbo 7D – Fórmula Esencial, ideal para quienes están comenzando y quieren ver resultados rápidos sin gastar mucho.
+          <p className="text-sm text-gray-700 max-w-2xl mx-auto mb-4 text-left">
+            Sabemos que no siempre es posible adquirir todo de inmediato. Por eso creamos esta opción accesible:<br />
+            <span className="font-bold">Drenaje Turbo 7D – Fórmula Esencial</span><br />
+            Ideal para quienes están empezando con el protocolo Azúcar Bajo Control y quieren sentir una mejora visible sin gastar mucho.
           </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-8">
-            <div className="bg-gray-50/50 rounded-lg p-3 border border-gray-100">
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-green-500 text-xs">✅</span>
-                <span className="text-gray-700 text-xs">Ayuda a deshinchar</span>
-              </div>
-            </div>
-            
-            <div className="bg-gray-50/50 rounded-lg p-3 border border-gray-100">
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-green-500 text-xs">✅</span>
-                <span className="text-gray-700 text-xs">Elimina líquidos retenidos</span>
-              </div>
-            </div>
-            
-            <div className="bg-gray-50/50 rounded-lg p-3 border border-gray-100">
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-green-500 text-xs">✅</span>
-                <span className="text-gray-700 text-xs">Complemento perfecto al Ozempic Natural</span>
-              </div>
-            </div>
-          </div>
+          <ul className="list-none pl-0 space-y-1 text-[15px] mb-4 text-left max-w-2xl mx-auto">
+            <li>✅ Ayuda a reducir la hinchazón</li>
+            <li>✅ Elimina líquidos retenidos</li>
+            <li>✅ Complemento perfecto al Azúcar Bajo Control</li>
+          </ul>
+          <p className="text-base text-gray-800 font-medium text-left max-w-2xl mx-auto">
+            👉 Toca el botón para añadirlo a tu pedido ahora mismo y no perder esta oportunidad única.
+          </p>
         </div>
-
         <div className="bg-white border-2 border-dashed border-salud-red rounded-xl p-4 mb-8 shadow-lg">
           <div className="text-center">
-            <p className="text-base text-gray-800 mb-3 font-medium">
-              👉 Toca el botón para añadirlo a tu pedido ahora mismo:
-            </p>
-            
             {/* Container do Hotmart */}
             <div className="overflow-hidden">
               <div id="hotmart-sales-funnel" className="w-full" style={{ maxWidth: '100%' }}></div>

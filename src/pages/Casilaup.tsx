@@ -47,38 +47,36 @@ const Casilaup = () => {
       <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="text-center mb-8">
           <h1 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 leading-tight">
-            Multiplica tus resultados con solo un paso adicional:
+            Multiplica tus resultados con un solo paso adicional:
             <br />
-            <span className="text-salud-red">Activa la "Drenagem Turbo 7D"</span> y potencia tu pérdida de peso desde el primer día
+            <span className="text-salud-red">Activa el “Drenaje Turbo 7D” y acelera el equilibrio de tu metabolismo desde el primer día.</span>
           </h1>
-          
           <p className="text-sm text-gray-700 max-w-2xl mx-auto mb-4">
-            Aunque ya garantizaste tu frasco de Ozempic Natural, la mayoría de nuestros usuarios aceleraron sus resultados combinándolo con la fórmula exclusiva Drenagem Turbo 7D.
+            Aunque ya aseguraste tu acceso al protocolo Azúcar Bajo Control, la mayoría de nuestros usuarios han conseguido resultados más rápidos y sensación de ligereza inmediata al combinarlo con la fórmula exclusiva Drenaje Turbo 7D.
           </p>
-          
-          <p className="text-sm text-gray-700 max-w-2xl mx-auto">
-            Esta fórmula actúa como un drenaje linfático natural, ayudando a eliminar líquidos retenidos, reducir la hinchazón abdominal y activar la quema de grasa estancada.
+          <p className="text-sm text-gray-700 max-w-2xl mx-auto mb-4">
+            Este drenaje natural ayuda a:
+            <br />💧 Eliminar líquidos retenidos
+            <br />🥵 Reducir la hinchazón abdominal
+            <br />🔥 Activar la desinflamación metabólica que impide controlar el azúcar correctamente
           </p>
         </div>
-
         <div className="bg-white border-2 border-dashed border-salud-red rounded-xl p-4 mb-8 shadow-lg">
           <div className="text-center">
             <div className="flex items-center justify-center text-base font-bold text-gray-400 line-through mb-1">
               <span className="mr-2">💥</span>
-              Precio normal: $39
+              Precio regular: $99.90
             </div>
             <div className="text-2xl font-bold text-salud-red mb-1">
               <span className="mr-2">🎁</span>
-              Hoy solo para nuevos usuarios: $19.90
+              HOY solo para nuevos usuarios: $19.90
             </div>
-            <div className="text-sm text-gray-600 font-medium mb-4">
-              ¡Solo disponible en esta página y por única vez!
+            <div className="text-sm text-red-600 font-bold mb-4">
+              🛑 Oferta única, disponible únicamente en esta página
             </div>
-
             <p className="text-base text-gray-800 mb-3 font-medium">
-              👉 Toca el botón para añadirlo a tu pedido ahora mismo:
+              👉 Toca el botón para añadirlo a tu pedido ahora mismo y comenzar más liviano(a)
             </p>
-            
             {/* Container do Hotmart */}
             <div className="overflow-hidden">
               <div id="hotmart-sales-funnel" className="w-full" style={{ maxWidth: '100%' }}></div>
