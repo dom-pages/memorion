@@ -1,43 +1,24 @@
-import { useEffect, useRef } from 'react';
+import React from 'react';
 
-export function NewsTicker() {
-  const tickerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ticker = tickerRef.current;
-    if (!ticker) return;
-
-    const text = 'ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD - ';
-    const repeatedText = text.repeat(10); // Repete o texto várias vezes para garantir o efeito contínuo
-
-    ticker.innerHTML = repeatedText;
-
-    let position = 0;
-    const speed = 50; // pixels por segundo
-
-    const animate = () => {
-      position -= speed / 60; // 60fps
-      if (position <= -ticker.offsetWidth) {
-        position = 0;
-      }
-      ticker.style.transform = `translateX(${position}px)`;
-      requestAnimationFrame(animate);
-    };
-
-    const animationId = requestAnimationFrame(animate);
-
-    return () => {
-      cancelAnimationFrame(animationId);
-    };
-  }, []);
-
+export default function NewsTicker() {
   return (
-    <div className="overflow-hidden py-2 w-full" style={{ backgroundColor: '#810405' }}>
-      <div 
-        ref={tickerRef}
-        className="whitespace-nowrap text-white text-xs font-light"
-        style={{ display: 'inline-block' }}
-      />
+    <div className="w-full overflow-hidden bg-[#850705] text-white py-2">
+      <div className="flex animate-marquee whitespace-nowrap">
+        <div className="flex text-xs">
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+        </div>
+        <div className="flex text-xs">
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+          <span className="mx-4">ÚLTIMAS NOTICIAS DE BIENESTAR Y SALUD</span>
+        </div>
+      </div>
     </div>
   );
 } 
