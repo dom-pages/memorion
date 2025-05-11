@@ -15,5 +15,5 @@ export function useTrafficFilter() {
     checkCookie();
   }, []);
 
-  return isBlack;
+  return { isBlack };
 } 
