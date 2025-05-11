@@ -613,6 +613,9 @@ video {
 .visible {
   visibility: visible;
 }
+.static {
+  position: static;
+}
 .absolute {
   position: absolute;
 }
