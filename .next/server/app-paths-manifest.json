@@ -1,7 +1,0 @@
-{
-  "/promo/page": "app/promo/page.js",
-  "/casilaup/page": "app/casilaup/page.js",
-  "/casiladown/page": "app/casiladown/page.js",
-  "/page": "app/page.js",
-  "/bienvenida/page": "app/bienvenida/page.js"
-}
