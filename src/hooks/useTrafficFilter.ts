@@ -1,26 +1,19 @@
 import { useState, useEffect } from 'react';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 
 const COOKIE_NAME = 'vsl_access';
 
 export function useTrafficFilter() {
   const [isBlack, setIsBlack] = useState(false);
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
-    const checkTraffic = () => {
-      // Verifica se o cookie existe
-      const hasAccess = document.cookie
-        .split('; ')
-        .some(row => row.startsWith(`${COOKIE_NAME}=true`));
-      
-      setIsBlack(hasAccess);
+    const checkCookie = () => {
+      const cookies = document.cookie.split(';');
+      const vslAccessCookie = cookies.find(cookie => cookie.trim().startsWith(`${COOKIE_NAME}=`));
+      setIsBlack(!!vslAccessCookie);
     };
 
-    checkTraffic();
-  }, [pathname, searchParams]);
+    checkCookie();
+  }, []);
 
-  return { isBlack };
+  return isBlack;
 } 

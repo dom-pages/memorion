@@ -53,7 +53,7 @@ export default function Bienvenida() {
           <div className="border-t border-gray-200 pt-6">
             <h2 className="text-lg font-semibold mb-4">🎯 Mientras tanto…</h2>
             <p className="text-gray-700">
-              Recomendamos guardar este correo de soporte y estar atento(a) a tu email en los próximos minutos.
+              Recomendamos guardar este correo de suporte y estar atento(a) a tu email en los próximos minutos.
             </p>
           </div>
 
