@@ -42,7 +42,7 @@ export default function CasilaDown() {
           Drenaje Turbo 7D – Fórmula Esencial
         </p>
         <p className="text-base text-gray-700">
-          Ideal para quienes están empezando con el protocolo Azúcar Bajo Control y quieren sentir una mejora visible sin gastar mucho.
+          Ideal para quienes están empezando con el protocolo Mounjaro Natural y quieren sentir una mejora visible sin gastar mucho.
         </p>
       </div>
 
@@ -59,7 +59,7 @@ export default function CasilaDown() {
           </li>
           <li className="flex items-center gap-2">
             <span className="text-green-600">✅</span>
-            <span>Complemento perfecto al Azúcar Bajo Control</span>
+            <span>Complemento perfecto al Mounjaro Natural</span>
           </li>
         </ul>
         <p className="text-lg mt-4">
