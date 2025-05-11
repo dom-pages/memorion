@@ -1,45 +1,26 @@
 import { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+
+const COOKIE_NAME = 'vsl_access';
 
 export function useTrafficFilter() {
   const [isBlack, setIsBlack] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const checkTraffic = () => {
-      const urlParams = new URLSearchParams(location.search);
-      const catParam = urlParams.get('cat');
+      // Verifica se o cookie existe
+      const hasAccess = document.cookie
+        .split('; ')
+        .some(row => row.startsWith(`${COOKIE_NAME}=true`));
       
-      if (catParam === 'b6mP2e7KIKH7i2w') {
-        // Salvar no cookie
-        document.cookie = 'traffic_type=black; path=/; max-age=259200'; // 72 horas de validade
-        
-        // Remover o parâmetro da URL
-        urlParams.delete('cat');
-        const newUrl = urlParams.toString() 
-          ? `${location.pathname}?${urlParams.toString()}`
-          : location.pathname;
-        
-        // Navegar para a nova URL sem o parâmetro
-        navigate(newUrl, { replace: true });
-        
-        setIsBlack(true);
-      } else {
-        // Verificar se já existe um cookie
-        const cookies = document.cookie.split(';');
-        const trafficCookie = cookies.find(cookie => cookie.trim().startsWith('traffic_type='));
-        
-        if (trafficCookie) {
-          setIsBlack(trafficCookie.includes('black'));
-        } else {
-          setIsBlack(false);
-        }
-      }
+      setIsBlack(hasAccess);
     };
 
     checkTraffic();
-  }, [location, navigate]);
+  }, [pathname, searchParams]);
 
   return { isBlack };
 } 

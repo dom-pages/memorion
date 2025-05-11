@@ -1,30 +1,18 @@
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
-export const useBackRedirect = (redirectPath: string) => {
+export function useBackRedirect(redirectPath: string) {
+  const router = useRouter();
+
   useEffect(() => {
-    const setBackRedirect = (path: string) => {
-      // Adiciona os parâmetros de URL se existirem
-      const urlWithParams = path + (window.location.search ? window.location.search : '');
-      
-      // Prepara o histórico para o backredirect
-      history.pushState({}, '', location.href);
-      history.pushState({}, '', location.href);
-      history.pushState({}, '', location.href);
-
-      // Adiciona o listener para o evento popstate
-      window.addEventListener('popstate', () => {
-        console.log('Redirecionando para:', urlWithParams);
-        setTimeout(() => {
-          window.location.href = urlWithParams;
-        }, 1);
-      });
+    const handlePopState = () => {
+      router.push(redirectPath);
     };
 
-    setBackRedirect(redirectPath);
+    window.addEventListener('popstate', handlePopState);
 
-    // Limpa o listener quando o componente é desmontado
     return () => {
-      window.removeEventListener('popstate', () => {});
+      window.removeEventListener('popstate', handlePopState);
     };
-  }, [redirectPath]);
-}; 
+  }, [redirectPath, router]);
+} 
