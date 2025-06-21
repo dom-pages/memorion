@@ -1,11 +1,27 @@
 import React from 'react';
 import { Menu } from 'lucide-react';
+import Image from 'next/image';
 
 const Header = () => {
   return (
-    <header className="w-full bg-[#B82613] text-white py-4">
-      <div className="container mx-auto px-4">
-        <h1 className="text-2xl font-bold text-center">SALUD</h1>
+    <header className="w-full bg-black text-white py-4">
+      <div className="container mx-auto px-4 flex items-center justify-between">
+        <button className="p-2 hover:bg-gray-800 rounded-lg transition-colors">
+          <Menu size={24} />
+        </button>
+        
+        <div className="flex-1 flex justify-center">
+          <Image 
+            src="/images/cnn.webp" 
+            alt="CNN" 
+            width={120} 
+            height={40} 
+            style={{height: 'auto', width: 'auto'}}
+            className="h-8"
+          />
+        </div>
+        
+        <div className="w-10"></div> {/* Espaçador para manter o logo centralizado */}
       </div>
     </header>
   );

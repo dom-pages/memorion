@@ -12,7 +12,7 @@ declare global {
 export function UTMifyPixel() {
   useEffect(() => {
     // Configuração do pixel
-    window.pixelId = "681184c975426149fef54361";
+    window.pixelId = "6855fcbe018fad81647b4675";
     const pixelScript = document.createElement("script");
     pixelScript.setAttribute("async", "");
     pixelScript.setAttribute("defer", "");

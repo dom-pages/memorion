@@ -21,7 +21,7 @@ const ViewerCounter = () => {
 
   return (
     <div className="text-center my-4 text-sm text-gray-600">
-      <p>{viewers} personas están mirando en este momento</p>
+      <p>{viewers} people are watching now</p>
     </div>
   );
 };
