@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import NewsTicker from '@/components/NewsTicker';
-import VSLBlack from '@/components/VSLBlack';
+import VSLBlackV2 from '@/components/VSLBlackV2';
 import VSLWhite from '@/components/VSLWhite';
 import ViewerCounter from '@/components/ViewerCounter';
 import { UTMifyPixel } from '@/components/UTMifyPixel';
@@ -42,6 +42,28 @@ export default function Home() {
       });
   }, []);
 
+  // Função para configurar delay de 29:30 minutos
+  useEffect(() => {
+    const setupDelay = () => {
+      const player = document.querySelector("vturb-smartplayer") as any;
+      if (player && player.displayHiddenElements) {
+        player.addEventListener("player:ready", function() {
+          const delaySeconds = 1770; // 29:30 minutos
+          player.displayHiddenElements(delaySeconds, [".esconder"], {
+            persist: true
+          });
+        });
+      }
+    };
+
+    // Configura o delay quando o DOM estiver pronto
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setupDelay);
+    } else {
+      setupDelay();
+    }
+  }, []);
+
   return (
     <main>
       <UTMifyPixel />
@@ -65,7 +87,7 @@ export default function Home() {
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-full max-w-3xl">
-                  {isBlack ? <VSLBlack /> : <VSLWhite />}
+                  {isBlack ? <VSLBlackV2 /> : <VSLWhite />}
                 </div>
               </div>
               <ViewerCounter />
