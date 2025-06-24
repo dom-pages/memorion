@@ -12,4 +12,14 @@
   .esconder {
     display: none !important;
   }
+  
+  /* Versão mais específica para garantir que funcione */
+  .esconder.esconder {
+    display: none !important;
+  }
+  
+  /* Classe para mostrar elementos */
+  .mostrar {
+    display: block !important;
+  }
 }

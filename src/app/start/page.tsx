@@ -8,11 +8,13 @@ import VSLWhite from '@/components/VSLWhite';
 import ViewerCounter from '@/components/ViewerCounter';
 import { UTMifyPixel } from '@/components/UTMifyPixel';
 import { TrafficFilterProvider } from '@/components/TrafficFilterProvider';
+import { useVideoDelay } from '@/hooks/useVideoDelay';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
   const [currentDate, setCurrentDate] = useState('');
+  const shouldShowCards = useVideoDelay(1770); // 29:30 minutos (1770 segundos)
 
   useEffect(() => {
     fetch('https://worldtimeapi.org/api/timezone/America/Sao_Paulo')
@@ -40,28 +42,6 @@ export default function Home() {
         };
         setCurrentDate(date.toLocaleDateString('en-US', options));
       });
-  }, []);
-
-  // Função para configurar delay de 29:30 minutos
-  useEffect(() => {
-    const setupDelay = () => {
-      const player = document.querySelector("vturb-smartplayer") as any;
-      if (player && player.displayHiddenElements) {
-        player.addEventListener("player:ready", function() {
-          const delaySeconds = 1770; // 29:30 minutos
-          player.displayHiddenElements(delaySeconds, [".esconder"], {
-            persist: true
-          });
-        });
-      }
-    };
-
-    // Configura o delay quando o DOM estiver pronto
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', setupDelay);
-    } else {
-      setupDelay();
-    }
   }, []);
 
   return (
@@ -93,9 +73,9 @@ export default function Home() {
               <ViewerCounter />
               
               {/* Imagens das garrafas - Layout responsivo */}
-              <div className="flex flex-col md:flex-row justify-center items-center gap-6 my-8">
+              <div className={`flex flex-col md:flex-row justify-center items-center gap-6 my-8 ${shouldShowCards ? 'mostrar' : 'esconder'}`}>
                 {/* Mobile: 6-bottle primeiro, Desktop: 1-bottle primeiro */}
-                <div className="order-2 md:order-1 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105 esconder">
+                <div className="order-2 md:order-1 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
                   <Link 
                     href="https://www.checkout-ds24.com/product/548372aff=lucasbaierle"
                     className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
@@ -115,7 +95,7 @@ export default function Home() {
                 </div>
                 
                 {/* Mobile: 6-bottle primeiro, Desktop: 6-bottle segundo */}
-                <div className="order-1 md:order-2 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105 esconder">
+                <div className="order-1 md:order-2 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
                   <Link 
                     href="https://www.checkout-ds24.com/product/548374aff=lucasbaierle"
                     className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
@@ -135,7 +115,7 @@ export default function Home() {
                 </div>
                 
                 {/* Mobile: 3-bottle segundo, Desktop: 3-bottle terceiro */}
-                <div className="order-3 md:order-3 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105 esconder">
+                <div className="order-3 md:order-3 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
                   <Link 
                     href="https://www.checkout-ds24.com/product/548373aff=lucasbaierle"
                     className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
@@ -156,7 +136,7 @@ export default function Home() {
               </div>
               
               {/* Imagem images.webp abaixo das garrafas */}
-              <div className="flex justify-center my-8 esconder">
+              <div className={`flex justify-center my-8 ${shouldShowCards ? 'mostrar' : 'esconder'}`}>
                 <Image 
                   src="/images/images.png" 
                   alt="Images" 

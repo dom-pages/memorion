@@ -87,19 +87,6 @@ const VSLBlack = () => {
             }
           }
           
-          // Função para configurar delay
-          function setupDelay() {
-            var player = document.querySelector("vturb-smartplayer");
-            if (player) {
-              player.addEventListener("player:ready", function() {
-                var delaySeconds = 1800; // 30 minutos
-                player.displayHiddenElements(delaySeconds, [".esconder"], {
-                  persist: true
-                });
-              });
-            }
-          }
-          
           // Executa auto-play em 1 segundo
           setTimeout(forceAutoPlay, 1000);
           
@@ -108,13 +95,6 @@ const VSLBlack = () => {
           
           // Executa novamente em 5 segundos (fallback extra)
           setTimeout(forceAutoPlay, 5000);
-          
-          // Configura o delay quando o DOM estiver pronto
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', setupDelay);
-          } else {
-            setupDelay();
-          }
         `}
       </Script>
     </div>
