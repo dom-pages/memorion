@@ -1,244 +1,128 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-// Novo tipo para suportar replies
-interface CommentType {
-  id: number;
-  name: string;
-  content: string;
-  likes?: number;
-  timeAgo: string;
-  profileImage?: string;
-  replies?: CommentType[];
-}
-
-// Função para "achatar" todas as respostas em uma lista única
-function flattenReplies(replies?: CommentType[]): CommentType[] {
-  if (!replies) return [];
-  let flat: CommentType[] = [];
-  for (const reply of replies) {
-    flat.push(reply);
-    if (reply.replies) {
-      flat = flat.concat(flattenReplies(reply.replies));
-    }
-  }
-  return flat;
-}
-
-// Novo componente para respostas, sempre com o mesmo recuo
-const Replies = ({ replies }: { replies: CommentType[] }) => {
-  const flatReplies = flattenReplies(replies);
-  return (
-    <div className="pl-5 sm:pl-7 mt-1 flex flex-col gap-1">
-      {flatReplies.map(reply => (
-        <Comment key={reply.id} comment={reply} isReply />
-      ))}
-    </div>
-  );
-};
-
-const Comment = ({ comment, isReply = false }: { comment: CommentType; isReply?: boolean }) => {
-  return (
-    <div className={`flex items-start ${isReply ? 'mb-1' : 'mb-2'}`}>
-      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-200 mr-2 sm:mr-3 flex-shrink-0 overflow-hidden border border-gray-300">
-        {comment.profileImage ? (
-          <img 
-            src={`/images/profiles/${comment.profileImage}`} 
-            alt={`${comment.name}'s profile`}
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <div className="w-full h-full bg-gray-400 flex items-center justify-center text-white font-bold">
-            {comment.name.charAt(0)}
-          </div>
-        )}
-      </div>
-      <div className="flex-1 min-w-0">
-        <div className="bg-gray-50 rounded-xl px-3 sm:px-4 py-2 shadow-sm border border-gray-100">
-          <h4 className="font-semibold text-xs text-gray-800 mb-0.5 truncate">{comment.name}</h4>
-          <p className="text-[15px] text-gray-900 leading-snug whitespace-pre-line break-words">{comment.content}</p>
-        </div>
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-gray-500 mt-1 ml-1">
-          <button className="hover:underline focus:outline-none px-0.5">Me gusta</button>
-          <span>·</span>
-          <button className="hover:underline focus:outline-none px-0.5">Responder</button>
-          {comment.likes !== undefined && (
-            <span className="flex items-center gap-1 text-gray-400"><span role="img" aria-label="like">👍</span> {comment.likes}</span>
-          )}
-          <span>·</span>
-          <span>{comment.timeAgo}</span>
-        </div>
-        {/* Respostas, todas no mesmo nível */}
-        {!isReply && comment.replies && comment.replies.length > 0 && (
-          <Replies replies={comment.replies} />
-        )}
-      </div>
-    </div>
-  );
-};
+const comments = [
+  {
+    id: 1,
+    user: 'Sophia Gibson',
+    avatar: '/images/profiles/user2.webp',
+    text: "My doctor couldn't believe it. After just 10 days, my A1C dropped so much he thought the lab messed up. He even made me redo the test just to be sure and said he's never seen anything work this fast.",
+    time: '1 min',
+    replies: []
+  },
+  {
+    id: 2,
+    user: 'Sheila Carroll',
+    avatar: '/images/profiles/user3.webp',
+    text: "I've been doing this trick for a little over a week, and my blood sugar levels have gone from 210 to 110. It feels like I can breathe again. Thank you for helping people without asking for anything in return.❤️",
+    time: '3 min',
+    replies: []
+  },
+  {
+    id: 3,
+    user: 'Valarie Kenneth',
+    avatar: '/images/profiles/user4.webp',
+    text: "My fasting glucose used to be 280. After just 14 days, it's down to 100. I haven't felt this hopeful in years.🙏",
+    time: '5 min',
+    replies: [
+      {
+        id: 31,
+        user: 'Robert Bahr',
+        avatar: '/images/profiles/user5.jpeg',
+        text: "That's awesome, Valarie! Did you make any other changes besides the recipe?",
+        time: '3 min',
+      },
+      {
+        id: 32,
+        user: 'Valarie Kenneth',
+        avatar: '/images/profiles/user4.webp',
+        text: "Nope, just the recipe. I didn't even mess with my diet much. It's crazy how something so simple is working so well.",
+        time: '1 min',
+      },
+    ]
+  },
+  {
+    id: 4,
+    user: 'Steven Sopcak',
+    avatar: '/images/profiles/user6.webp',
+    text: "Finally, someone who explains everything without all the medical mumbo jumbo. I'm starting this tonight. Thank you for being so clear and straightforward!",
+    time: '5 min',
+    replies: []
+  },
+  {
+    id: 5,
+    user: 'Joe Schmitt',
+    avatar: '/images/profiles/user7.webp',
+    text: "I found this video after praying for guidance. It's been just 5 days since I started, but I already feel like myself again. My energy is back, and my glucose levels are steady.",
+    time: '15 min',
+    replies: []
+  },
+  {
+    id: 6,
+    user: 'James Kirchner',
+    avatar: '/images/profiles/user9.webp',
+    text: "This is the most honest and well-explained solution I've seen. Thank you for helping people without charging for it.👏",
+    time: '25 min',
+    replies: [
+      {
+        id: 61,
+        user: 'Michelle L. Quinn',
+        avatar: '/images/profiles/user12.jpg',
+        text: "Totally agree, James. It's rare to find someone who actually cares like this.",
+        time: '1 min',
+      },
+    ]
+  },
+  {
+    id: 7,
+    user: 'Michael Miller',
+    avatar: '/images/profiles/user10.webp',
+    text: "After 3 weeks, my blood sugar is finally stable, and I've dropped 6 pounds without even trying. I feel lighter and healthier already.",
+    time: '33 min',
+    replies: []
+  },
+  {
+    id: 8,
+    user: 'Jeff McConnell',
+    avatar: '/images/profiles/user11.webp',
+    text: "I'm kinda skeptical because I've tried so many things. How is this any different from the rest?",
+    time: '45 min',
+    replies: []
+  },
+];
 
 const CommentSection = () => {
-  const [city, setCity] = useState<string>('tu ciudad');
-
-  useEffect(() => {
-    fetch('https://get.geojs.io/v1/ip/geo.json')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.city) setCity(data.city);
-      })
-      .catch(() => setCity('tu ciudad'));
-  }, []);
-
-  // Lista de comentários com replies e cidade dinâmica
-  const comments: CommentType[] = [
-    {
-      id: 1,
-      name: 'Francisco Sanchez',
-      content: 'Soy chofer y tengo 45 años. Luché contra la diabetes tipo 2 durante años y gasté todo mi salario en comprar medicamentos. Incluso un día mi hijo me mostró este video. ¡Gracias a João Aberto ya la Dra. Fernanda\nme deshice de las agujas! Gracias',
-      likes: 59,
-      timeAgo: '3 min',
-      profileImage: 'profile-1.jpeg',
-      replies: [
-        {
-          id: 2,
-          name: 'Daniel Romero',
-          content: 'Yo también estuve a punto de cerrar el video, uffa',
-          likes: 57,
-          timeAgo: '1 min',
-          profileImage: 'profile-2.jpeg',
-        },
-      ],
-    },
-    {
-      id: 3,
-      name: 'Bianca Girardi',
-      content: `Alguien de ${city} quien ya probo me puede decir si funciona???`,
-      likes: 33,
-      timeAgo: '10 min',
-      profileImage: 'profile-3.jpeg',
-      replies: [
-        {
-          id: 4,
-          name: 'Dolores Martinez',
-          content: `Hola Bianca, si soy de ${city}. ¡Yo también sospechaba, pero lo probé y funcionó! Mi nivel de azúcar en la sangre cae por debajo de 100 🙏`,
-          likes: 25,
-          timeAgo: '9 min',
-          profileImage: 'profile-4.jpeg',
-          replies: [
-            {
-              id: 5,
-              name: 'Bianca Giraral',
-              content: 'Gracias!! voy a probar entonces 🙏🙏🙏',
-              likes: 23,
-              timeAgo: '2 min',
-              profileImage: 'profile-3.jpeg',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 6,
-      name: 'Cláudio Miranda',
-      content: 'Maravilloso, lo estoy aplicando ahora y está funcionando muy bien. 😎😎',
-      likes: 120,
-      timeAgo: '33 min',
-      profileImage: 'profile-11.jpeg',
-    },
-    {
-      id: 7,
-      name: 'Carlos Gutierrez',
-      content: '¡Mi diabetes REALMENTE se revirtió! En pocas semanas haciendo todo lo que enseña Yumi lo logré. Lo más impresionante no es comida cara y dificil de encontrar, todo es muy simple.',
-      likes: 123,
-      timeAgo: '1 min',
-      profileImage: 'profile-5.jpeg',
-      replies: [
-        {
-          id: 8,
-          name: 'Lupe Maria',
-          content: 'Carlos, ¿fue difícil hacer lo que pedía el programa?',
-          likes: 67,
-          timeAgo: '1 min',
-          profileImage: 'profile-6.jpeg',
-          replies: [
-            {
-              id: 9,
-              name: 'Carlos Gutierrez',
-              content: 'No, la comida que puedes encontrar en cualquier mercado, las actividades que puedes hacer en casa, todo muy sencillo y no lo podía creer!',
-              likes: 74,
-              timeAgo: '1 min',
-              profileImage: 'profile-5.jpeg',
-              replies: [
-                {
-                  id: 10,
-                  name: 'Lupe Maria',
-                  content: 'Gracias, voy a comprarlo ahora mismo, antes de que se caiga la página!',
-                  likes: 23,
-                  timeAgo: '1 min',
-                  profileImage: 'profile-6.jpeg',
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-    {
-      id: 11,
-      name: 'Maria Angeles García',
-      content: 'Soy profesora y tengo 43 años. He estado viviendo con restricciones dietéticas desde que tenía 30 años debido a la Tipo 2. Pero hoy estoy libre gracias a este programa. Hoy mi glucosa en sangre siempre está por\ndebajo de 100 y mi médico ya me ha dado de alta de la medicación.',
-      likes: 48,
-      timeAgo: '1 min',
-      profileImage: 'profile-7.jpeg',
-    },
-    {
-      id: 12,
-      name: 'Carlos Alvarez',
-      content: 'Solo me di cuenta de la gravedad de esta enfermedad cuando me vi acostado en una cama de hospital a punto de perder el equilibrio! Pero no fueron los medicamentos que me indicó mi médico, que ya tomaba antes de mi coma diabético, no fue dejar de comer dulces y carbohidratos y tampoco fue el gimnasio, porque todo eso ya lo hacía, pero no No evitaré este colapso de mi cuerpo. Fue solo después de que comencé\nhacer el protocolo Azucar Bajo Control que mi vida cambió. Hoy se enorgullece de decir que mi nivel de glucosa en la sangre no es más de 100. Muchas gracias Yumi.',
-      likes: 33,
-      timeAgo: '1 min',
-      profileImage: 'profile-8.jpeg',
-      replies: [
-        {
-          id: 13,
-          name: 'Miguel Tavarez',
-          content: 'Amigo casi me quedo ciego.... Azucar Bajo Control me salvó la vista',
-          likes: 120,
-          timeAgo: '1 min',
-          profileImage: 'profile-9.jpeg',
-        },
-      ],
-    },
-    {
-      id: 14,
-      name: 'Dolores Ruiz',
-      content: 'Solo tengo que agradecer a Yumi. ¡En solo 3 semanas dejé casi todos mis medicamentos! ¡Hoy solo uso 1 pastilla al día, antes eran 6 al día!',
-      likes: 119,
-      timeAgo: '1 min',
-      profileImage: 'profile-10.jpeg',
-    },
-  ];
-
-  // Contar total de comentários (incluindo replies)
-  function countComments(comments: CommentType[]): number {
-    let count = 0;
-    for (const comment of comments) {
-      count++;
-      if (comment.replies) {
-        count += countComments(comment.replies);
-      }
-    }
-    return count;
-  }
-
   return (
-    <div className="max-w-2xl mx-auto bg-white p-2 sm:p-4 shadow-sm my-6 border border-gray-200 rounded-lg">
-      <div className="text-sm text-gray-600 mb-3 border-b pb-2 font-medium">
-        Mostrando {countComments(comments)} comentarios
-      </div>
-      <div className="space-y-2">
-        {comments.map(comment => (
-          <Comment key={comment.id} comment={comment} />
-        ))}
+    <div className="w-full max-w-2xl mx-auto my-8">
+      <h2 className="text-xl font-bold mb-4">Comments</h2>
+      <div className="border rounded-lg p-6 bg-white shadow-md">
+        <div className="space-y-6">
+          {comments.map(comment => (
+            <div key={comment.id}>
+              <div className="flex items-center mb-2">
+                <img src={comment.avatar} alt={comment.user} className="w-10 h-10 rounded-full mr-3 object-cover" />
+                <div>
+                  <div className="font-semibold">{comment.user}</div>
+                  <div className="text-xs text-gray-500">{comment.time} ago</div>
+                </div>
+              </div>
+              <div className="mb-2 text-gray-800">{comment.text}</div>
+              {comment.replies && comment.replies.length > 0 && (
+                <div className="ml-10 mt-2 space-y-4">
+                  {comment.replies.map(reply => (
+                    <div key={reply.id} className="flex items-start">
+                      <img src={reply.avatar} alt={reply.user} className="w-8 h-8 rounded-full mr-2 object-cover" />
+                      <div>
+                        <div className="font-semibold text-sm">{reply.user}</div>
+                        <div className="text-xs text-gray-500">{reply.time} ago</div>
+                        <div className="text-gray-700 text-sm">{reply.text}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

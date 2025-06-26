@@ -9,7 +9,7 @@ const VSLBlackV2 = () => {
   useEffect(() => {
     if (playerRef.current && !playerRef.current.querySelector('vturb-smartplayer')) {
       const el = document.createElement('vturb-smartplayer');
-      el.id = 'vid-685952bbbeca9ba020a4cd33';
+      el.id = 'vid-685d8235005d0805f71d045c';
       el.style.display = 'block';
       el.style.margin = '0 auto';
       el.style.width = '100%';
@@ -23,17 +23,17 @@ const VSLBlackV2 = () => {
   return (
     <div className="w-full rounded-2xl overflow-hidden">
       <div ref={playerRef}></div>
-      <Script id="vturb-685952bbbeca9ba020a4cd33" strategy="afterInteractive">
+      <Script id="vturb-685d8235005d0805f71d045c" strategy="afterInteractive">
         {`
           // Carrega o script do player
           var s=document.createElement("script");
-          s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/685952bbbeca9ba020a4cd33/v4/player.js";
+          s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/685d8235005d0805f71d045c/v4/player.js";
           s.async=!0;
           document.head.appendChild(s);
           
           // Função para forçar auto-play
           function forceAutoPlay() {
-            var player = document.getElementById('vid-685952bbbeca9ba020a4cd33');
+            var player = document.getElementById('vid-685d8235005d0805f71d045c');
             
             // Método 1: Tentar play direto no player
             if (player && player.play) {
