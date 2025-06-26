@@ -16,7 +16,7 @@ import CommentSection from '@/components/CommentSection';
 
 export default function Home() {
   const [currentDate, setCurrentDate] = useState('');
-  const shouldShowCards = useVideoDelay(2220); // 37 minutos (2220 segundos)
+  const shouldShowCards = useVideoDelay(5); // 37 minutos (2220 segundos)
 
   useEffect(() => {
     fetch('https://worldtimeapi.org/api/timezone/America/Sao_Paulo')
