@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Script from "next/script";
 
-export default function VSLBlackV2() {
+export default function VSLBlackV3() {
 
   return (
     <>
@@ -21,14 +21,7 @@ export default function VSLBlackV2() {
           style={{ WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)", position: "absolute", top: "0", height: "100%", width: "100%" }} />
       </div>
       <Script id="scr_685d8235005d0805f71d045c" strategy="afterInteractive">
-        {`
-          console.log('[VSLBlackV2] Carregando script do player...');
-          var s=document.createElement("script"); 
-          s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/685d8235005d0805f71d045c/player.js"; 
-          s.async=!0;
-          document.head.appendChild(s);
-          console.log('[VSLBlackV2] Script do player adicionado ao DOM');
-        `}
+        var s=document.createElement("script"); s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/685d8235005d0805f71d045c/player.js", s.async=!0,document.head.appendChild(s);
       </Script>
     </>
   );

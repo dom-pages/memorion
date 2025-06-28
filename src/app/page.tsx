@@ -8,13 +8,26 @@ import VSLWhite from '@/components/VSLWhite';
 import ViewerCounter from '@/components/ViewerCounter';
 import { UTMifyPixel } from '@/components/UTMifyPixel';
 import { TrafficFilterProvider } from '@/components/TrafficFilterProvider';
-import { useVideoDelay } from '@/hooks/useVideoDelay';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Home() {
   const [currentDate, setCurrentDate] = useState('');
-  const shouldShowCards = useVideoDelay(1770); // 29:30 minutos (1770 segundos)
+  const [visible, setVisible] = useState(false);
+  
+  // Monitora o tempo do vídeo e controla visibilidade dos cards
+  useEffect(() => {
+    if (!visible) {
+      const intervalId = setInterval(() => {
+        const storedVideoTime = Number(localStorage.getItem('685d8235005d0805f71d045c'));
+        
+        if (storedVideoTime > 10) { // 10 segundos para teste
+          setVisible(true);
+        }
+      }, 1000);
+      return () => clearInterval(intervalId);
+    }
+  }, [visible]);
 
   useEffect(() => {
     fetch('https://worldtimeapi.org/api/timezone/America/Sao_Paulo')
@@ -73,7 +86,7 @@ export default function Home() {
               <ViewerCounter />
               
               {/* Imagens das garrafas - Layout responsivo */}
-              <div className={`flex flex-col md:flex-row justify-center items-center gap-6 my-8 ${shouldShowCards ? 'mostrar' : 'esconder'}`}>
+              <div className={`flex flex-col md:flex-row justify-center items-center gap-6 my-8 ${visible ? 'mostrar' : 'esconder'}`}>
                 {/* Mobile: 6-bottle primeiro, Desktop: 1-bottle primeiro */}
                 <div className="order-2 md:order-1 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
                   <Link 
@@ -136,7 +149,7 @@ export default function Home() {
               </div>
               
               {/* Imagem images.webp abaixo das garrafas */}
-              <div className={`flex justify-center my-8 ${shouldShowCards ? 'mostrar' : 'esconder'}`}>
+              <div className={`flex justify-center my-8 ${visible ? 'mostrar' : 'esconder'}`}>
                 <Image 
                   src="/images/images.png" 
                   alt="Images" 

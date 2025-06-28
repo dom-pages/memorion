@@ -1,104 +1,29 @@
-'use client';
+/* eslint-disable react/no-unescaped-entities */
 
-import React, { useEffect, useRef } from 'react';
-import Script from 'next/script';
+import Image from "next/image";
+import Script from "next/script";
 
-const VSLBlack = () => {
-  const playerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (playerRef.current && !playerRef.current.querySelector('vturb-smartplayer')) {
-      const el = document.createElement('vturb-smartplayer');
-      el.id = 'vid-6859675ec4705e2832b292d4';
-      el.style.display = 'block';
-      el.style.margin = '0 auto';
-      el.style.width = '100%';
-      el.style.maxWidth = '400px';
-      el.style.borderRadius = '16px';
-      el.style.overflow = 'hidden';
-      playerRef.current.appendChild(el);
-    }
-  }, []);
+export default function VSLBlack() {
 
   return (
-    <div className="w-full rounded-2xl overflow-hidden">
-      <div ref={playerRef}></div>
-      <Script id="vturb-6859675ec4705e2832b292d4" strategy="afterInteractive">
-        {`
-          // Carrega o script do player
-          var s=document.createElement("script");
-          s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/6859675ec4705e2832b292d4/v4/player.js";
-          s.async=!0;
-          document.head.appendChild(s);
-          
-          // Função para forçar auto-play
-          function forceAutoPlay() {
-            var player = document.getElementById('vid-6859675ec4705e2832b292d4');
-            
-            // Método 1: Tentar play direto no player
-            if (player && player.play) {
-              try {
-                player.play();
-                console.log('Auto-play executado no player');
-              } catch(e) {
-                console.log('Erro no play direto:', e);
-              }
-            }
-            
-            // Método 2: Procurar vídeo dentro do player
-            if (player) {
-              var video = player.querySelector('video');
-              if (video) {
-                try {
-                  video.play();
-                  console.log('Auto-play executado no vídeo');
-                } catch(e) {
-                  console.log('Erro no play do vídeo:', e);
-                }
-              }
-            }
-            
-            // Método 3: Simular clique no player
-            if (player) {
-              try {
-                var clickEvent = new MouseEvent('click', {
-                  view: window,
-                  bubbles: true,
-                  cancelable: true
-                });
-                player.dispatchEvent(clickEvent);
-                console.log('Clique simulado no player');
-              } catch(e) {
-                console.log('Erro no clique simulado:', e);
-              }
-            }
-            
-            // Método 4: Procurar botão de play e clicar
-            var playButton = document.querySelector('[data-play]') || 
-                           document.querySelector('.play-button') || 
-                           document.querySelector('.vturb-play');
-            if (playButton) {
-              try {
-                playButton.click();
-                console.log('Clique no botão de play');
-              } catch(e) {
-                console.log('Erro no clique do botão:', e);
-              }
-            }
-          }
-          
-          // Executa auto-play em 1 segundo
-          setTimeout(forceAutoPlay, 1000);
-          
-          // Executa novamente em 3 segundos (fallback)
-          setTimeout(forceAutoPlay, 3000);
-          
-          // Executa novamente em 5 segundos (fallback extra)
-          setTimeout(forceAutoPlay, 5000);
-        `}
+    <>
+      <div id="vid_685d8235005d0805f71d045c" style={{ position: "relative", width: "100%", padding: "56.25% 0 0" }}>
+        <Image
+          alt="Video"
+          width={64}
+          height={54}
+          id="thumb_685d8235005d0805f71d045c" 
+          src="https://images.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/685d8235005d0805f71d045c/thumbnail.jpg"
+          style={{ position: "absolute", top: "0", left: "0", width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          unoptimized
+        />
+        <div id="backdrop_685d8235005d0805f71d045c"
+          style={{ WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)", position: "absolute", top: "0", height: "100%", width: "100%" }} />
+      </div>
+      <Script id="scr_685d8235005d0805f71d045c" strategy="afterInteractive">
+        var s=document.createElement("script"); s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/685d8235005d0805f71d045c/player.js", s.async=!0,document.head.appendChild(s);
       </Script>
-    </div>
+    </>
   );
+  
 };
-
-export default VSLBlack; 
