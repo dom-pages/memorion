@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Header from '@/components/Header';
 import NewsTicker from '@/components/NewsTicker';
 import VSLBlackV2 from '@/components/VSLBlackV2';
@@ -12,12 +12,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import FAQ from '@/components/FAQ';
 import CommentSection from '@/components/CommentSection';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
   const { isBlack } = useTraffic();
   const [currentDate, setCurrentDate] = useState('');
   const [visible, setVisible] = useState(false);
   
+  // Captura parâmetros da URL para repassar aos checkouts
+  const searchParams = useSearchParams();
+  const appendSearchParams = useCallback(
+    (baseUrl: string) => {
+      const queryString = searchParams.toString();
+      if (!queryString) return baseUrl;
+      // Evita duplicar o ? caso o link já possua parâmetros (ex: afid)
+      const separator = baseUrl.includes('?') ? '&' : '?';
+      return `${baseUrl}${separator}${queryString}`;
+    },
+    [searchParams]
+  );
+
   // Monitora o tempo do vídeo e controla visibilidade dos cards
   useEffect(() => {
     if (!visible) {
@@ -92,7 +106,7 @@ export default function Home() {
                 {/* 6-bottle.webp - Primeira */}
                 <div id="bottle-6" className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
                   <Link 
-                    href="https://sugardeletecart.shop/checkout/175111632:1?afid=D5nTA8k92T"
+                    href={appendSearchParams('https://sugardeletecart.shop/checkout/175111632:1?afid=D5nTA8k92T')}
                     className="block w-full md:w-auto"
                   >
                     <Image 
@@ -109,7 +123,7 @@ export default function Home() {
                 {/* 3-bottle.webp - Segunda */}
                 <div className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
                   <Link 
-                    href="https://sugardeletecart.shop/checkout/181173731:1?afid=gy1gqe2noS"
+                    href={appendSearchParams('https://sugardeletecart.shop/checkout/181173731:1?afid=gy1gqe2noS')}
                     className="block w-full md:w-auto"
                   >
                     <Image 
@@ -126,7 +140,7 @@ export default function Home() {
                 {/* 2-bottle.webp - Terceira */}
                 <div className="w-full md:w-1/3 flex justify-center">
                   <Link 
-                    href="https://sugardeletecart.shop/checkout/181173778:1?afid=1WAOyh5ihD"
+                    href={appendSearchParams('https://sugardeletecart.shop/checkout/181173778:1?afid=1WAOyh5ihD')}
                     className="block w-full md:w-auto"
                   >
                     <Image 
