@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/index.css";
 import { Toaster } from "sonner";
+import ContentTypeProvider from '@/components/ContentTypeProvider.server';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,8 +24,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://images.converteai.net" />
         <link rel="dns-prefetch" href="https://api.vturb.com.br" />
       </head>
-      <body className={inter.className}>
-        {children}
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <ContentTypeProvider>
+          {children}
+        </ContentTypeProvider>
         <Toaster />
       </body>
     </html>

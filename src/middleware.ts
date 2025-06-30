@@ -1,36 +1,57 @@
-import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-const BLACK_VSL_PASSWORD = 'b6mP2e7KIKH7i2w';
-const COOKIE_NAME = 'vsl_access';
-const COOKIE_EXPIRY = 72 * 60 * 60; // 72 horas em segundos
+const FACEBOOK_PARAM_PASS = 'b6mP2e7KIKH7i2w';
 
-export function middleware(request: NextRequest) {
-  const url = request.nextUrl;
-  const searchParams = url.searchParams;
+const domainMap: Record<string, string> = {
+  "saludabletech.online": "1",
+  "localhost:3000": "2",
+  "go.saludabletech.online": "3",
+};
+
+export function middleware(req: NextRequest) {
+
+  const { nextUrl } = req;
+  const url = nextUrl.toString();
+  const host = nextUrl.hostname.toLowerCase();
+  const domainId = domainMap[host] || "0";
+  const searchParams = nextUrl.searchParams;
+
+  const requestHeaders = new Headers(req.headers);
+
+  requestHeaders.set('x-url', url);
+  requestHeaders.set('x-host', host);
+  requestHeaders.set('x-domain-id', domainId);
+
   const catParam = searchParams.get('cat');
 
-  // Verifica se o parâmetro cat está presente e é válido
-  if (catParam === BLACK_VSL_PASSWORD) {
-    // Remove o parâmetro cat da URL
+  if (catParam === FACEBOOK_PARAM_PASS) {
+
     searchParams.delete('cat');
-    url.search = searchParams.toString();
-
-    // Cria a resposta com o cookie
-    const response = NextResponse.redirect(url);
+    const newUrl = req.nextUrl.clone();
+    newUrl.search = searchParams.toString();
+  
+    const response = NextResponse.redirect(newUrl, { status: 302 });
+    
     response.cookies.set({
-      name: COOKIE_NAME,
-      value: 'true',
-      expires: new Date(Date.now() + COOKIE_EXPIRY * 1000),
+      name: 'cat_valid',
+      value: '1',
       path: '/',
+      maxAge: 60 * 60 * 72,
+      httpOnly: false,
     });
-
+  
     return response;
-  }
+  
+  };
 
-  return NextResponse.next();
-}
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
+
+};
 
 export const config = {
-  matcher: ['/', '/start'],
-}; 
+  matcher: ["/:path*"],
+};
