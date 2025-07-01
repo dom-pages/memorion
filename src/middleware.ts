@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from 'next/server';
 const FACEBOOK_PARAM_PASS = 'b6mP2e7KIKH7i2w';
 
 const domainMap: Record<string, string> = {
-  "test.saludabletech.online": "1",
-  "saludabletech.online": "2",
-  "go.saludabletech.online": "3",
+  "newshealth.online": "1",
+  "news-today.site": "2",
+  "onlyhealth.online": "3",
 };
 
 export function middleware(req: NextRequest) {
