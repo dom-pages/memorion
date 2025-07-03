@@ -83,9 +83,10 @@ export default function Home() {
         <div className="px-6 md:px-8 py-4">
           <div className="flex flex-col items-center py-4">
             <div className="w-full max-w-2xl">
-              <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-2 text-left md:text-center">
-                <span className="text-[#B82613]">Medical Breakthrough:</span>
-                <span className="text-black"> How a Tiny Parasite Could Be Behind Millions of Diabetes Cases</span>
+              <h1 className="text-2xl md:text-4xl leading-tight mb-2 text-left md:text-center">
+                <span className="font-light text-black">The Secret Of </span>
+                <span className="font-bold text-black">Reversing Type 2 Diabetes</span>
+                <span className="font-light text-black"> Without Dieting Or Exercising</span>
               </h1>
               <div className="font-bold mb-1 md:text-center text-left">By James Carter – Investigative Health Reporter</div>
               <div className="text-gray-500 mb-2 text-base md:text-center text-left">
