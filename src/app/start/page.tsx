@@ -12,6 +12,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import FAQ from '@/components/FAQ';
 import CommentSection from '@/components/CommentSection';
+import BottleCounter from '@/components/BottleCounter';
 import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
@@ -36,9 +37,9 @@ export default function Home() {
   useEffect(() => {
     if (!visible) {
       const intervalId = setInterval(() => {
-        const storedVideoTime = Number(localStorage.getItem('68618af15e5d86d7e5940f25'));
+        const storedVideoTime = Number(localStorage.getItem('686aee867306fe5249c71a71'));
         
-        if (storedVideoTime > 2180) { // 36:20 minutos (2180 segundos)
+        if (storedVideoTime > 1789) { // 29:49 minutos (1789 segundos)
           setVisible(true);
         }
       }, 1000);
@@ -84,9 +85,9 @@ export default function Home() {
           <div className="flex flex-col items-center py-4">
             <div className="w-full max-w-2xl">
               <h1 className="text-2xl md:text-4xl leading-tight mb-2 text-left md:text-center">
-                <span className="font-light text-black">The Secret Of </span>
-                <span className="font-bold text-black">Reversing Type 2 Diabetes</span>
-                <span className="font-light text-black"> Without Dieting Or Exercising</span>
+                <span className="font-light text-black">This Japanese compound is helping diabetics throw away their metformin…</span>
+                <br />
+                <span className="font-light text-black">See what happens when the parasite gets eliminated</span>
               </h1>
               <div className="font-bold mb-1 md:text-center text-left">By James Carter – Investigative Health Reporter</div>
               <div className="text-gray-500 mb-2 text-base md:text-center text-left">
@@ -103,6 +104,8 @@ export default function Home() {
           {/* Imagens das garrafas - Layout responsivo */}
           {visible && (
             <div className="w-full flex flex-col items-center my-8"> 
+              {/* Contador de potes */}
+              <BottleCounter />
               <div className="flex flex-col md:flex-row justify-center items-end gap-6 w-full max-w-4xl mx-auto">
                 {/* 6-bottle.webp - Primeira */}
                 <div id="bottle-6" className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
