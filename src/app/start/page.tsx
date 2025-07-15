@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useCallback } from 'react';
-import Header from '@/components/Header';
+// import Header from '@/components/Header';
 import NewsTicker from '@/components/NewsTicker';
 import VSLBlackV2 from '@/components/VSLBlackV2';
 import VSLWhite from '@/components/VSLWhite';
@@ -47,52 +47,20 @@ export default function Home() {
     }
   }, [visible]);
 
-  useEffect(() => {
-    fetch('https://worldtimeapi.org/api/timezone/America/Sao_Paulo')
-      .then(res => res.json())
-      .then(data => {
-        if (data && data.datetime) {
-          const date = new Date(data.datetime);
-          const options: Intl.DateTimeFormatOptions = { 
-            weekday: 'short', 
-            year: 'numeric', 
-            month: 'long', 
-            day: 'numeric' 
-          };
-          setCurrentDate(date.toLocaleDateString('en-US', options));
-        }
-      })
-      .catch(() => {
-        // Fallback para data local do navegador
-        const date = new Date();
-        const options: Intl.DateTimeFormatOptions = { 
-          weekday: 'short', 
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric' 
-        };
-        setCurrentDate(date.toLocaleDateString('en-US', options));
-      });
-  }, []);
-
   return (
     <main>
       <UTMifyPixel />
       <>
-        <Header />
+        {/* <Header /> */}
         <NewsTicker />
         <div className="px-6 md:px-8 py-4">
           <div className="flex flex-col items-center py-4">
             <div className="w-full max-w-2xl">
               <h1 className="text-2xl md:text-4xl leading-tight mb-2 text-left md:text-center">
                 <span className="font-light text-black">This Japanese compound is helping diabetics throw away their metformin…</span>
-                <br />
+                <br/>
                 <span className="font-light text-black">See what happens when the parasite gets eliminated</span>
               </h1>
-              <div className="font-bold mb-1 md:text-center text-left">By James Carter – Investigative Health Reporter</div>
-              <div className="text-gray-500 mb-2 text-base md:text-center text-left">
-                Updated 27 minutes ago - {currentDate || 'Fri, June 20, 2025'}
-              </div>
             </div>
           </div>
           <div className="flex flex-col items-center">
