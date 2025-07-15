@@ -112,6 +112,7 @@ export default function Home() {
                   <Link 
                     href={appendSearchParams('https://sugardeletecart.shop/checkout/175111632:1?afid=D5nTA8k92T')}
                     className="block w-full md:w-auto"
+                    prefetch={false}
                   >
                     <Image 
                       src="/images/6-bottle.webp" 
@@ -122,6 +123,7 @@ export default function Home() {
                       className="w-full md:w-60 object-cover"
                       priority
                     />
+                    <span className="sr-only">iniciar checkout</span>
                   </Link>
                 </div>
                 {/* 3-bottle.webp - Segunda */}
@@ -129,6 +131,7 @@ export default function Home() {
                   <Link 
                     href={appendSearchParams('https://sugardeletecart.shop/checkout/181173731:1?afid=gy1gqe2noS')}
                     className="block w-full md:w-auto"
+                    prefetch={false}
                   >
                     <Image 
                       src="/images/3-bottle.webp" 
@@ -139,6 +142,7 @@ export default function Home() {
                       className="w-full md:w-60 object-cover"
                       priority
                     />
+                    <span className="sr-only">iniciar checkout</span>
                   </Link>
                 </div>
                 {/* 2-bottle.webp - Terceira */}
@@ -146,6 +150,7 @@ export default function Home() {
                   <Link 
                     href={appendSearchParams('https://sugardeletecart.shop/checkout/181173778:1?afid=1WAOyh5ihD')}
                     className="block w-full md:w-auto"
+                    prefetch={false}
                   >
                     <Image 
                       src="/images/2-bottle.webp" 
@@ -156,6 +161,7 @@ export default function Home() {
                       className="w-full md:w-60 object-cover"
                       priority
                     />
+                    <span className="sr-only">iniciar checkout</span>
                   </Link>
                 </div>
               </div>

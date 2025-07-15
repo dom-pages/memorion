@@ -93,6 +93,7 @@ export default function Home() {
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
+                prefetch={false}
               >
                 <Image 
                   src="/images/1-bottle.png" 
@@ -103,6 +104,7 @@ export default function Home() {
                   className="w-full md:w-80"
                   priority
                 />
+                <span className="sr-only">iniciar checkout</span>
               </Link>
             </div>
             
@@ -113,6 +115,7 @@ export default function Home() {
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
+                prefetch={false}
               >
                 <Image 
                   src="/images/6-bottle.png" 
@@ -123,6 +126,7 @@ export default function Home() {
                   className="w-full md:w-80"
                   priority
                 />
+                <span className="sr-only">iniciar checkout</span>
               </Link>
             </div>
             
@@ -133,6 +137,7 @@ export default function Home() {
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
+                prefetch={false}
               >
                 <Image 
                   src="/images/3-bottle.png" 
@@ -143,6 +148,7 @@ export default function Home() {
                   className="w-full md:w-80"
                   priority
                 />
+                <span className="sr-only">iniciar checkout</span>
               </Link>
             </div>
           </div>
