@@ -10,9 +10,9 @@ export default function BottleCounter() {
   useEffect(() => {
     // Monitora o tempo do vídeo para aparecer com o mesmo delay
     const checkVideoTime = () => {
-      const storedVideoTime = Number(localStorage.getItem('686aee867306fe5249c71a71'));
+      const storedVideoTime = Number(localStorage.getItem('687d862b2a38c6be43a2d847'));
       
-      if (storedVideoTime > 1789) { // 29:49 minutos (1789 segundos)
+      if (storedVideoTime > 2407) { // 29:49 minutos (1789 segundos)
         setIsVisible(true);
         if (!startTime) {
           setStartTime(Date.now());

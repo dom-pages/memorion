@@ -37,9 +37,9 @@ export default function Home() {
   useEffect(() => {
     if (!visible) {
       const intervalId = setInterval(() => {
-        const storedVideoTime = Number(localStorage.getItem('686aee867306fe5249c71a71'));
+        const storedVideoTime = Number(localStorage.getItem('687d862b2a38c6be43a2d847'));
         
-        if (storedVideoTime > 1789) { // 29:49 minutos (1789 segundos)
+        if (storedVideoTime > 2407) { // 40:07 minutos (2407 segundos)
           setVisible(true);
         }
       }, 1000);
@@ -78,12 +78,12 @@ export default function Home() {
                 {/* 6-bottle.webp - Primeira */}
                 <div id="bottle-6" className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
                   <Link 
-                    href={appendSearchParams('https://sugardeletecart.shop/checkout/175111632:1?afid=D5nTA8k92T')}
+                    href={appendSearchParams('https://sugardeletepay.store/checkout/186016669:1?afid=2NyvmUydD6')}
                     className="block w-full md:w-auto"
                     prefetch={false}
                   >
                     <Image 
-                      src="/images/6-bottle.webp" 
+                      src="/images/6-bottle.png" 
                       alt="Garrafa 6" 
                       width={800} 
                       height={1200} 
@@ -97,12 +97,12 @@ export default function Home() {
                 {/* 3-bottle.webp - Segunda */}
                 <div className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
                   <Link 
-                    href={appendSearchParams('https://sugardeletecart.shop/checkout/181173731:1?afid=gy1gqe2noS')}
+                    href={appendSearchParams('https://sugardeletepay.store/checkout/190301606:1?afid=zQq54rWJGr')}
                     className="block w-full md:w-auto"
                     prefetch={false}
                   >
                     <Image 
-                      src="/images/3-bottle.webp" 
+                      src="/images/3-bottle.png" 
                       alt="Garrafa 3" 
                       width={800} 
                       height={1200} 
@@ -116,12 +116,12 @@ export default function Home() {
                 {/* 2-bottle.webp - Terceira */}
                 <div className="w-full md:w-1/3 flex justify-center">
                   <Link 
-                    href={appendSearchParams('https://sugardeletecart.shop/checkout/181173778:1?afid=1WAOyh5ihD')}
+                    href={appendSearchParams('https://sugardeletepay.store/checkout/186016667:1?afid=0cOqJQV2DU')}
                     className="block w-full md:w-auto"
                     prefetch={false}
                   >
                     <Image 
-                      src="/images/2-bottle.webp" 
+                      src="/images/2-bottle.png" 
                       alt="Garrafa 2" 
                       width={800} 
                       height={1200} 
@@ -147,11 +147,11 @@ export default function Home() {
               {/* Texto de garantia, oferta e botão âncora - centralizados */}
               <div className="flex flex-col items-center text-center gap-4 w-full max-w-2xl mx-auto">
                 <p className="text-base md:text-lg">
-                  Still not sure? Remember, <b>Sugar Delete</b> comes with a <b>100% Money-Back Guarantee for a full 180 days!</b> That means if you don't get the results we promise or you change your mind for any reason at all, just call or email our support team within the next 6 months and quickly get every penny back. What do you have to lose? Your success is virtually guaranteed!
+                  Still not sure? Remember, <b>Block Sugar</b> comes with a <b>100% Money-Back Guarantee for a full 180 days!</b> That means if you don't get the results we promise or you change your mind for any reason at all, just call or email our support team within the next 6 months and quickly get every penny back. What do you have to lose? Your success is virtually guaranteed!
                 </p>
                 <div className="text-[#B82613] text-lg font-bold">Limited Time Offer</div>
                 <a href="#bottle-6" className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-200 shadow-md">
-                  YES! I Want Sugar Delete
+                  YES! I Want Block Sugar
                 </a>
               </div>
               {/* FAQ */}
