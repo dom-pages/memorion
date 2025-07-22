@@ -39,7 +39,7 @@ export default function Home() {
       const intervalId = setInterval(() => {
         const storedVideoTime = Number(localStorage.getItem('687d862b2a38c6be43a2d847'));
         
-        if (storedVideoTime > 2407) { // 40:07 minutos (2407 segundos)
+        if (storedVideoTime > 2080) { // 34:40 minutos (2080 segundos)
           setVisible(true);
         }
       }, 1000);

@@ -12,7 +12,7 @@ export default function BottleCounter() {
     const checkVideoTime = () => {
       const storedVideoTime = Number(localStorage.getItem('687d862b2a38c6be43a2d847'));
       
-      if (storedVideoTime > 2407) { // 29:49 minutos (1789 segundos)
+      if (storedVideoTime > 2080) { // 34:40 minutos (2080 segundos)
         setIsVisible(true);
         if (!startTime) {
           setStartTime(Date.now());
