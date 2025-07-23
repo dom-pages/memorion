@@ -5,13 +5,13 @@ import React, { useEffect, useState, useCallback } from 'react';
 import NewsTicker from '@/components/NewsTicker';
 import VSLBlackV3 from '@/components/VSLBlackV3';
 import VSLWhite from '@/components/VSLWhite';
-// import ViewerCounter from '@/components/ViewerCounter';
+import ViewerCounter from '@/components/ViewerCounter';
 import { UTMifyPixel } from '@/components/UTMifyPixel';
 import { useTraffic } from '@/components/TrafficProvider.client';
 import Image from 'next/image';
 // import Link from 'next/link';
 import CommentSection from '@/components/CommentSection';
-import BottleCounter from '@/components/BottleCounter';
+// import BottleCounter from '@/components/BottleCounter';
 import { useSearchParams } from 'next/navigation';
 import { trackClick } from '@/utils/ClickTracker';
 
@@ -66,12 +66,12 @@ export default function Health() {
               {isBlack ? <VSLBlackV3 /> : <VSLWhite />}
             </div>
           </div>
-          {/* <ViewerCounter /> */}
+          <ViewerCounter />
           {/* Imagens das garrafas - Layout responsivo */}
           {visible && (
             <div className="w-full flex flex-col items-center my-8"> 
               {/* Contador de potes */}
-              <BottleCounter />
+              {/* <BottleCounter /> */}
               <div className="flex flex-col md:flex-row justify-center items-end gap-6 w-full max-w-4xl mx-auto">
                 {/* 6-bottle.webp - Primeira */}
                 <div id="bottle-6" className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
