@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { trackClick } from '@/utils/ClickTracker';
 
 interface CTAButtonProps {
   text: string;
@@ -8,9 +11,15 @@ interface CTAButtonProps {
 }
 
 const CTAButton: React.FC<CTAButtonProps> = ({ text, href, className = '' }) => {
+
+  const handleClick = () => {
+    trackClick(href, 'cta_button');
+  };
+
   return (
     <Link 
       href={href}
+      onClick={handleClick}
       className={`
         inline-block
         px-8

@@ -3,20 +3,19 @@
 import React, { useEffect, useState, useCallback } from 'react';
 // import Header from '@/components/Header';
 import NewsTicker from '@/components/NewsTicker';
-import VSLBlackV2 from '@/components/VSLBlackV2';
+import VSLBlackV3 from '@/components/VSLBlackV3';
 import VSLWhite from '@/components/VSLWhite';
-import ViewerCounter from '@/components/ViewerCounter';
+// import ViewerCounter from '@/components/ViewerCounter';
 import { UTMifyPixel } from '@/components/UTMifyPixel';
 import { useTraffic } from '@/components/TrafficProvider.client';
 import Image from 'next/image';
 // import Link from 'next/link';
-import { trackClick } from '@/utils/ClickTracker';
-import FAQ from '@/components/FAQ';
 import CommentSection from '@/components/CommentSection';
 import BottleCounter from '@/components/BottleCounter';
 import { useSearchParams } from 'next/navigation';
+import { trackClick } from '@/utils/ClickTracker';
 
-export default function Home() {
+export default function Health() {
   const { isBlack } = useTraffic();
   const [currentDate, setCurrentDate] = useState('');
   const [visible, setVisible] = useState(false);
@@ -38,9 +37,9 @@ export default function Home() {
   useEffect(() => {
     if (!visible) {
       const intervalId = setInterval(() => {
-        const storedVideoTime = Number(localStorage.getItem('687d862b2a38c6be43a2d847'));
+        const storedVideoTime = Number(localStorage.getItem('688015e7fd39a349f414afd9'));
         
-        if (storedVideoTime > 2080) { // 34:40 minutos (2080 segundos)
+        if (storedVideoTime > 2763) { // 46:03 minutos (2763 segundos)
           setVisible(true);
         }
       }, 1000);
@@ -58,18 +57,16 @@ export default function Home() {
           <div className="flex flex-col items-center py-4">
             <div className="w-full max-w-2xl">
               <h1 className="text-2xl md:text-4xl leading-tight mb-2 text-left md:text-center">
-                <span className="font-light text-black">This Japanese compound is helping diabetics throw away their metformin…</span>
-                <br/>
-                <span className="font-light text-black">See what happens when the parasite gets eliminated</span>
+                <span className="font-light text-black">This Cactus Recipe Reverses Your Type 2 Diabetes in 7 Days</span>
               </h1>
             </div>
           </div>
           <div className="flex flex-col items-center">
             <div className="w-full max-w-3xl">
-              {isBlack ? <VSLBlackV2 /> : <VSLWhite />}
+              {isBlack ? <VSLBlackV3 /> : <VSLWhite />}
             </div>
           </div>
-          <ViewerCounter />
+          {/* <ViewerCounter /> */}
           {/* Imagens das garrafas - Layout responsivo */}
           {visible && (
             <div className="w-full flex flex-col items-center my-8"> 
@@ -82,7 +79,7 @@ export default function Home() {
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
                       const link6 = appendSearchParams('https://sugardeletepay.store/checkout/186016669:1?afid=2NyvmUydD6')
-                      trackClick(link6, 'start-6')
+                      trackClick(link6, 'health-6')
                       window.location.href = link6
                     }}
                   >
@@ -104,7 +101,7 @@ export default function Home() {
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
                       const link3 = appendSearchParams('https://sugardeletepay.store/checkout/190301606:1?afid=zQq54rWJGr')
-                      trackClick(link3, 'start-3')
+                      trackClick(link3, 'health-3')
                       window.location.href = link3
                     }}
                   >
@@ -126,7 +123,7 @@ export default function Home() {
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
                       const link2 = appendSearchParams('https://sugardeletepay.store/checkout/186016667:1?afid=0cOqJQV2DU')
-                      trackClick(link2, 'start-2')
+                      trackClick(link2, 'health-2')
                       window.location.href = link2
                     }}
                   >
@@ -164,8 +161,6 @@ export default function Home() {
                   YES! I Want Block Sugar
                 </a>
               </div>
-              {/* FAQ */}
-              <FAQ />
             </div>
           )}
           {/* Centralizar logos */}
