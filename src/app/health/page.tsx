@@ -37,7 +37,7 @@ export default function Health() {
   useEffect(() => {
     if (!visible) {
       const intervalId = setInterval(() => {
-        const storedVideoTime = Number(localStorage.getItem('688015e7fd39a349f414afd9'));
+        const storedVideoTime = Number(localStorage.getItem('68800fbf9d7a9adf0db95832'));
         
         if (storedVideoTime > 2763) { // 46:03 minutos (2763 segundos)
           setVisible(true);
