@@ -11,9 +11,9 @@ import { useTraffic } from '@/components/TrafficProvider.client';
 import Image from 'next/image';
 // import Link from 'next/link';
 import { trackClick } from '@/utils/ClickTracker';
-import FAQ from '@/components/FAQ';
-import CommentSection from '@/components/CommentSection';
-import BottleCounter from '@/components/BottleCounter';
+//import FAQ from '@/components/FAQ';
+//import CommentSection from '@/components/CommentSection';
+//import BottleCounter from '@/components/BottleCounter';
 import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
@@ -38,9 +38,9 @@ export default function Home() {
   useEffect(() => {
     if (!visible) {
       const intervalId = setInterval(() => {
-        const storedVideoTime = Number(localStorage.getItem('687d862b2a38c6be43a2d847'));
+        const storedVideoTime = Number(localStorage.getItem('68855e32fb6a9e3c8af6c049'));
         
-        if (storedVideoTime > 2080) { // 34:40 minutos (2080 segundos)
+        if (storedVideoTime > 2318) { // 38:38 minutos (2318 segundos)
           setVisible(true);
         }
       }, 1000);
@@ -74,14 +74,14 @@ export default function Home() {
           {visible && (
             <div className="w-full flex flex-col items-center my-8"> 
               {/* Contador de potes */}
-              <BottleCounter />
+             {/* <BottleCounter /> */}
               <div className="flex flex-col md:flex-row justify-center items-end gap-6 w-full max-w-4xl mx-auto">
                 {/* 6-bottle.webp - Primeira */}
                 <div id="bottle-6" className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
                   <div
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
-                      const link6 = appendSearchParams('https://sugardeletepay.store/checkout/186016669:1?afid=2NyvmUydD6')
+                      const link6 = appendSearchParams('https://sugardeletecart.shop/checkout/190705379:1?afid=8yNTNDkjdR')
                       trackClick(link6, 'start-6')
                       window.location.href = link6
                     }}
@@ -103,7 +103,7 @@ export default function Home() {
                   <div
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
-                      const link3 = appendSearchParams('https://sugardeletepay.store/checkout/190301606:1?afid=zQq54rWJGr')
+                      const link3 = appendSearchParams('https://sugardeletecart.shop/checkout/190705465:1?afid=uR9qNymndA')
                       trackClick(link3, 'start-3')
                       window.location.href = link3
                     }}
@@ -125,7 +125,7 @@ export default function Home() {
                   <div
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
-                      const link2 = appendSearchParams('https://sugardeletepay.store/checkout/186016667:1?afid=0cOqJQV2DU')
+                      const link2 = appendSearchParams('https://sugardeletecart.shop/checkout/190705493:1?afid=YwRgh78IJP')
                       trackClick(link2, 'start-2')
                       window.location.href = link2
                     }}
@@ -165,7 +165,7 @@ export default function Home() {
                 </a>
               </div>
               {/* FAQ */}
-              <FAQ />
+             {/* <FAQ /> */}
             </div>
           )}
           {/* Centralizar logos */}
@@ -173,7 +173,7 @@ export default function Home() {
             <Image src="/images/logos.webp" alt="Logos" width={600} height={80} style={{height: 'auto'}} className="mx-auto" />
           </div>
           {/* Seção de comentários */}
-          <CommentSection />
+          {/* <CommentSection /> */}
         </div>
       </>
     </main>
