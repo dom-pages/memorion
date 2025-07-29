@@ -38,9 +38,9 @@ export default function Home() {
   useEffect(() => {
     if (!visible) {
       const intervalId = setInterval(() => {
-        const storedVideoTime = Number(localStorage.getItem('68855e32fb6a9e3c8af6c049'));
+        const storedVideoTime = Number(localStorage.getItem('6888312da37ba8f20ed5255c'));
         
-        if (storedVideoTime > 2318) { // 38:38 minutos (2318 segundos)
+        if (storedVideoTime > 2074) { // 34:34 minutos (2074 segundos)
           setVisible(true);
         }
       }, 1000);
