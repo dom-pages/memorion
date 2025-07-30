@@ -81,7 +81,7 @@ export default function Home() {
                   <div
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
-                      const link6 = appendSearchParams('https://sugardeletecart.shop/checkout/190705379:1?afid=8yNTNDkjdR')
+                      const link6 = appendSearchParams('https://blocksugarpro.online/checkout/191186894:1?afid=ufqO36UMbK')
                       trackClick(link6, 'start-6')
                       window.location.href = link6
                     }}
@@ -103,7 +103,7 @@ export default function Home() {
                   <div
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
-                      const link3 = appendSearchParams('https://sugardeletecart.shop/checkout/190705465:1?afid=uR9qNymndA')
+                      const link3 = appendSearchParams('https://blocksugarpro.online/checkout/191186926:1?afid=w7Tqa0powk')
                       trackClick(link3, 'start-3')
                       window.location.href = link3
                     }}
@@ -125,7 +125,7 @@ export default function Home() {
                   <div
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
-                      const link2 = appendSearchParams('https://sugardeletecart.shop/checkout/190705493:1?afid=YwRgh78IJP')
+                      const link2 = appendSearchParams('https://blocksugarpro.online/checkout/191186900:1?afid=xY4tEjDA9L')
                       trackClick(link2, 'start-2')
                       window.location.href = link2
                     }}
