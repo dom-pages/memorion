@@ -38,9 +38,9 @@ export default function Home() {
   useEffect(() => {
     if (!visible) {
       const intervalId = setInterval(() => {
-        const storedVideoTime = Number(localStorage.getItem('6888312da37ba8f20ed5255c'));
+        const storedVideoTime = Number(localStorage.getItem('688f803f3614ea4fa0b34a73'));
         
-        if (storedVideoTime > 2074) { // 34:34 minutos (2074 segundos)
+        if (storedVideoTime > 2473) { // 41:13 minutos (2473 segundos)
           setVisible(true);
         }
       }, 1000);
@@ -51,16 +51,15 @@ export default function Home() {
   return (
     <main>
       <UTMifyPixel />
-      <>
         {/* <Header /> */}
         <NewsTicker />
         <div className="px-6 md:px-8 py-4">
           <div className="flex flex-col items-center py-4">
             <div className="w-full max-w-2xl">
               <h1 className="text-2xl md:text-4xl leading-tight mb-2 text-left md:text-center">
-                <span className="font-light text-black">This Japanese compound is helping diabetics throw away their metformin…</span>
+                <span className="font-light text-black">Millions of diabetics are fighting the <span className="bg-yellow-300">wrong enemy.</span></span>
                 <br/>
-                <span className="font-light text-black">See what happens when the parasite gets eliminated</span>
+                <span className="font-light text-black">Discover the true cause of type 2 diabetes — and why no one ever told you about it.</span>
               </h1>
             </div>
           </div>
@@ -70,79 +69,9 @@ export default function Home() {
             </div>
           </div>
           <ViewerCounter />
-          {/* Imagens das garrafas - Layout responsivo */}
+
           {visible && (
-            <div className="w-full flex flex-col items-center my-8"> 
-              {/* Contador de potes */}
-             {/* <BottleCounter /> */}
-              <div className="flex flex-col md:flex-row justify-center items-end gap-6 w-full max-w-4xl mx-auto">
-                {/* 6-bottle.webp - Primeira */}
-                <div id="bottle-6" className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
-                  <div
-                    className="block w-full md:w-auto cursor-pointer"
-                    onClick={() => {
-                      const link6 = appendSearchParams('https://blocksugarpro.online/checkout/191186894:1?afid=ufqO36UMbK')
-                      trackClick(link6, 'start-6')
-                      window.location.href = link6
-                    }}
-                  >
-                    <Image 
-                      src="/images/6-bottle.png" 
-                      alt="Garrafa 6" 
-                      width={800} 
-                      height={1200} 
-                      style={{height: 'auto', borderTopLeftRadius: 16, borderTopRightRadius: 16}}
-                      className="w-full md:w-60 object-cover"
-                      priority
-                    />
-                    <span className="sr-only">iniciar checkout</span>
-                  </div>
-                </div>
-                {/* 3-bottle.webp - Segunda */}
-                <div className="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
-                  <div
-                    className="block w-full md:w-auto cursor-pointer"
-                    onClick={() => {
-                      const link3 = appendSearchParams('https://blocksugarpro.online/checkout/191186926:1?afid=w7Tqa0powk')
-                      trackClick(link3, 'start-3')
-                      window.location.href = link3
-                    }}
-                  >
-                    <Image 
-                      src="/images/3-bottle.png" 
-                      alt="Garrafa 3" 
-                      width={800} 
-                      height={1200} 
-                      style={{height: 'auto', borderTopLeftRadius: 16, borderTopRightRadius: 16}}
-                      className="w-full md:w-60 object-cover"
-                      priority
-                    />
-                    <span className="sr-only">iniciar checkout</span>
-                  </div>
-                </div>
-                {/* 2-bottle.webp - Terceira */}
-                <div className="w-full md:w-1/3 flex justify-center">
-                  <div
-                    className="block w-full md:w-auto cursor-pointer"
-                    onClick={() => {
-                      const link2 = appendSearchParams('https://blocksugarpro.online/checkout/191186900:1?afid=xY4tEjDA9L')
-                      trackClick(link2, 'start-2')
-                      window.location.href = link2
-                    }}
-                  >
-                    <Image 
-                      src="/images/2-bottle.png" 
-                      alt="Garrafa 2" 
-                      width={800} 
-                      height={1200} 
-                      style={{height: 'auto', borderTopLeftRadius: 16, borderTopRightRadius: 16}}
-                      className="w-full md:w-60 object-cover"
-                      priority
-                    />
-                    <span className="sr-only">iniciar checkout</span>
-                  </div>
-                </div>
-              </div>
+            <>
               {/* Imagem de garantia - centralizada abaixo das garrafas */}
               <div className="flex justify-center w-full my-8 mx-auto">
                 <Image 
@@ -160,14 +89,18 @@ export default function Home() {
                   Still not sure? Remember, <b>Block Sugar</b> comes with a <b>100% Money-Back Guarantee for a full 180 days!</b> That means if you don't get the results we promise or you change your mind for any reason at all, just call or email our support team within the next 6 months and quickly get every penny back. What do you have to lose? Your success is virtually guaranteed!
                 </p>
                 <div className="text-[#B82613] text-lg font-bold">Limited Time Offer</div>
-                <a href="#bottle-6" className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-200 shadow-md">
+                <a 
+                  href="#bottle-6-anchor" 
+                  className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-200 shadow-md"
+                >
                   YES! I Want Block Sugar
                 </a>
               </div>
+            </>
+          )}
               {/* FAQ */}
              {/* <FAQ /> */}
-            </div>
-          )}
+
           {/* Centralizar logos */}
           <div className="flex justify-center my-8 w-full">
             <Image src="/images/logos.webp" alt="Logos" width={600} height={80} style={{height: 'auto'}} className="mx-auto" />
@@ -175,7 +108,6 @@ export default function Home() {
           {/* Seção de comentários */}
           {/* <CommentSection /> */}
         </div>
-      </>
     </main>
   );
 } 
