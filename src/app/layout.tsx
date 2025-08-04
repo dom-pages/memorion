@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Exclusive",
-  description: "This Cactus Recipe Reverses Your Type 2 Diabetes in 7 Days",
+  description: "Discover the true cause of type 2 diabetes — and why no one ever told you about it.",
 };
 
 export default function RootLayout({
