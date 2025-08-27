@@ -6,79 +6,212 @@ export default function VSLBlackV2() {
 
   return (
     <>
-      <div id="vid_688f803f3614ea4fa0b34a73" style={{ position: "relative", width: "100%", padding: "56.25% 0 0" }}>
-        <img 
-          id="thumb_688f803f3614ea4fa0b34a73" 
-          src="https://images.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/688f803f3614ea4fa0b34a73/thumbnail.jpg" 
-          style={{ position: "absolute", top: "0", left: "0", width: "100%", height: "100%", objectFit: "cover", display: "block" }} 
-          alt="thumbnail" 
+      {/* Container principal com fallback */}
+      <div 
+        id="vsl-container"
+        style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          width: '100%',
+          minHeight: '300px',
+          position: 'relative'
+        }}
+      >
+        {/* VSL Principal */}
+        <div 
+          id="vsl-main"
+          style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
+          dangerouslySetInnerHTML={{
+            __html: '<vturb-smartplayer id="vid-68af5f71040f0b0ec4ae1748" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>'
+          }}
         />
-        <div id="backdrop_688f803f3614ea4fa0b34a73" style={{ WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)", position: "absolute", top: "0", height: "100%", width: "100%" }}></div>
+        
+        {/* Fallback - aparece se a VSL sumir */}
+        <div 
+          id="vsl-fallback"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            display: 'none',
+            background: '#000',
+            color: '#fff',
+            padding: '20px',
+            borderRadius: '8px',
+            textAlign: 'center',
+            zIndex: 1000
+          }}
+          dangerouslySetInnerHTML={{
+            __html: `
+              <p>Carregando vídeo...</p>
+              <button 
+                onclick="reloadVSL()"
+                style="background: #fff; color: #000; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; margin-top: 10px;"
+              >
+                Recarregar VSL
+              </button>
+            `
+          }}
+        />
       </div>
-      <Script id="scr_688f803f3614ea4fa0b34a73" strategy="afterInteractive">
-        var s=document.createElement("script"); s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/688f803f3614ea4fa0b34a73/player.js", s.async=!0,document.head.appendChild(s);
+
+      <Script id="scr-68af5f71040f0b0ec4ae1748" strategy="beforeInteractive">
+        {`
+          // Sistema robusto de carregamento da VSL
+          window.vturbPlayerLoaded = false;
+          window.vslRetryCount = 0;
+          window.maxRetries = 5;
+          
+          function loadVSL() {
+            if (!window.vturbPlayerLoaded) {
+              window.vturbPlayerLoaded = true;
+              var s=document.createElement("script"); 
+              s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/68af5f71040f0b0ec4ae1748/v4/player.js"; 
+              s.async=!0;
+              s.onload = function() {
+                console.log('VSL carregada com sucesso');
+                hideFallback();
+              };
+              s.onerror = function() {
+                console.error('Erro ao carregar VSL');
+                showFallback();
+                retryVSL();
+              };
+              document.head.appendChild(s);
+            }
+          }
+          
+          function reloadVSL() {
+            window.vturbPlayerLoaded = false;
+            window.vslRetryCount = 0;
+            loadVSL();
+          }
+          
+          function retryVSL() {
+            if (window.vslRetryCount < window.maxRetries) {
+              window.vslRetryCount++;
+              setTimeout(loadVSL, 2000);
+            }
+          }
+          
+          function showFallback() {
+            const fallback = document.getElementById('vsl-fallback');
+            if (fallback) fallback.style.display = 'block';
+          }
+          
+          function hideFallback() {
+            const fallback = document.getElementById('vsl-fallback');
+            if (fallback) fallback.style.display = 'none';
+          }
+          
+          // Monitora se a VSL desaparece
+          function monitorVSL() {
+            const vslElement = document.getElementById('vid-68af5f71040f0b0ec4ae1748');
+            if (!vslElement || vslElement.offsetHeight === 0) {
+              showFallback();
+              retryVSL();
+            }
+          }
+          
+          // Carrega imediatamente
+          loadVSL();
+          
+          // Monitora a cada 5 segundos
+          setInterval(monitorVSL, 5000);
+        `}
       </Script>
 
-      {/* Customiza CTAs injetados pelo player */}
-      <Script id="custom-cta-img" strategy="afterInteractive">
+      {/* Customização persistente dos CTAs */}
+      <Script id="custom-cta-simple" strategy="beforeInteractive">
         {`
+          // Função simples para customizar CTAs
           function customizeCTA(selector, imgSrc, altText) {
-            const link = document.querySelector(selector);
-            if (!link || link.dataset.customized) return;
-            link.dataset.customized = '1';
-            link.style.background = 'transparent';
-            link.style.padding = '0';
-            link.style.boxShadow = 'none';
-            link.style.borderRadius = '0';
-            link.innerHTML = '<img src="' + imgSrc + '" alt="' + altText + '" style="width:100%;max-width:350px;height:auto;">';
-            // Adiciona ID para âncora se for o botão de 6 frascos
-            if (selector.includes('_2')) {
-              link.id = 'bottle-6-anchor';
+            const element = document.querySelector(selector);
+            if (element && !element.dataset.customized) {
+              element.dataset.customized = '1';
+              element.innerHTML = '<img src="' + imgSrc + '" alt="' + altText + '" style="width:100%;max-width:350px;height:auto;display:block;margin:0 auto;">';
+              
+              // Remove padding e margens do elemento
+              element.style.padding = '0';
+              element.style.margin = '0';
+              element.style.background = 'transparent';
+              element.style.border = 'none';
+              element.style.boxShadow = 'none';
+              
+              // Remove padding do container pai se existir
+              if (element.parentElement) {
+                element.parentElement.style.padding = '0';
+                element.parentElement.style.margin = '0';
+              }
+              
+              // Adiciona ID para âncora se for o botão de 6 frascos
+              if (altText.includes('6 Bottles')) {
+                element.id = 'bottle-6-anchor';
+                
+                // Adiciona animação de pulso para o botão de 6 bottles
+                if (!element.dataset.pulseAdded) {
+                  element.dataset.pulseAdded = '1';
+                  element.style.animation = 'pulse 2s ease-in-out infinite';
+                }
+                
+                // Cria a animação CSS se não existir
+                if (!document.getElementById('pulse-animation')) {
+                  const style = document.createElement('style');
+                  style.id = 'pulse-animation';
+                  style.textContent = '@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }';
+                  document.head.appendChild(style);
+                }
+              }
             }
-            link.style.margin = '0 auto'; // Centraliza e remove margens extras
-            if (link.parentElement) {
-              const container = link.parentElement;
-              container.style.padding = '10px 0'; // Diminui espaço vertical
+          }
+
+          // Função para detectar CTAs pelo texto
+          function findAndCustomizeCTAs() {
+            const ctaButtons = document.querySelectorAll('a[id^="callaction-button-"]');
+            
+            ctaButtons.forEach(button => {
+              const buttonText = button.textContent.trim().toLowerCase();
+              
+              if (buttonText.includes('6 bottles') || buttonText.includes('6-bottles')) {
+                customizeCTA('#' + button.id, '/images/DTC-6-BOTTLE.png', '6 Bottles');
+              } else if (buttonText.includes('3 bottles') || buttonText.includes('3-bottles')) {
+                customizeCTA('#' + button.id, '/images/DTC-3-BOTTLE.png', '3 Bottles');
+              } else if (buttonText.includes('2 bottles') || buttonText.includes('2-bottles')) {
+                customizeCTA('#' + button.id, '/images/DTC-2-BOTTLE.png', '2 Bottles');
+              }
+            });
+            
+            // Remove espaçamento de todos os containers de CTA
+            const ctaContainers = document.querySelectorAll('[class*="callaction"], [class*="smartplayer"]');
+            ctaContainers.forEach(container => {
+              container.style.padding = '0';
               container.style.margin = '0';
-
-              function aplicarLayout() {
-                const isDesktop = window.innerWidth >= 768;
-                container.style.display = 'flex';
-                container.style.flexDirection = isDesktop ? 'row' : 'column';
-                container.style.justifyContent = 'center';
-                container.style.alignItems = 'center';
-                container.style.gap = isDesktop ? '20px' : '10px';
-                container.style.flexWrap = 'wrap';
-              }
-
-              // Se o CTA já estiver visível (smartplayer-hide já removida)
-              if (!container.classList.contains('smartplayer-hide')) {
-                aplicarLayout();
-              } else {
-                // Observa a remoção da classe para aplicar o layout no momento certo
-                const obsLayout = new MutationObserver(() => {
-                  if (!container.classList.contains('smartplayer-hide')) {
-                    aplicarLayout();
-                    obsLayout.disconnect();
-                  }
-                });
-                obsLayout.observe(container, { attributes: true, attributeFilter: ['class'] });
-              }
-            }
+              container.style.gap = '0';
+            });
           }
 
-          function tryCustomize() {
-            customizeCTA('#callaction_688f803f3614ea4fa0b34a73_2 a', '/images/6-bottle.png', '6 Bottles');
-            customizeCTA('#callaction_688f803f3614ea4fa0b34a73_1 a', '/images/3-bottle.png', '3 Bottles');
-            customizeCTA('#callaction_688f803f3614ea4fa0b34a73_0 a', '/images/2-bottle.png', '2 Bottles');
+          // Função para verificar e customizar rapidamente
+          function startCustomization() {
+            // Primeira tentativa imediata
+            findAndCustomizeCTAs();
+            
+            // Verifica a cada 500ms por 10 segundos
+            let attempts = 0;
+            const maxAttempts = 20;
+            
+            const interval = setInterval(() => {
+              attempts++;
+              findAndCustomizeCTAs();
+              
+              if (attempts >= maxAttempts) {
+                clearInterval(interval);
+              }
+            }, 500);
           }
-
-          // Tenta imediatamente
-          tryCustomize();
-
-          // Observa mutações para pegar quando o CTA aparecer
-          const obs = new MutationObserver(tryCustomize);
-          obs.observe(document.body, { childList: true, subtree: true });
+          
+          // Inicia a customização imediatamente
+          startCustomization();
         `}
       </Script>
     </>

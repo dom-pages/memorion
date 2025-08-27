@@ -13,7 +13,7 @@ import Image from 'next/image';
 import CommentSection from '@/components/CommentSection';
 // import BottleCounter from '@/components/BottleCounter';
 import { useSearchParams } from 'next/navigation';
-import { trackClick } from '@/utils/ClickTracker';
+
 
 export default function Health() {
   const { isBlack } = useTraffic();
@@ -79,7 +79,6 @@ export default function Health() {
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
                       const link6 = appendSearchParams('https://sugardeletepay.store/checkout/186016669:1?afid=2NyvmUydD6')
-                      trackClick(link6, 'health-6')
                       window.location.href = link6
                     }}
                   >
@@ -101,7 +100,7 @@ export default function Health() {
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
                       const link3 = appendSearchParams('https://sugardeletepay.store/checkout/190301606:1?afid=zQq54rWJGr')
-                      trackClick(link3, 'health-3')
+
                       window.location.href = link3
                     }}
                   >
@@ -123,7 +122,7 @@ export default function Health() {
                     className="block w-full md:w-auto cursor-pointer"
                     onClick={() => {
                       const link2 = appendSearchParams('https://sugardeletepay.store/checkout/186016667:1?afid=0cOqJQV2DU')
-                      trackClick(link2, 'health-2')
+
                       window.location.href = link2
                     }}
                   >

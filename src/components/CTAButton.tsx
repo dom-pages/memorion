@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { trackClick } from '@/utils/ClickTracker';
+
 
 interface CTAButtonProps {
   text: string;
@@ -13,7 +13,7 @@ interface CTAButtonProps {
 const CTAButton: React.FC<CTAButtonProps> = ({ text, href, className = '' }) => {
 
   const handleClick = () => {
-    trackClick(href, 'cta_button');
+    // Tracking removed
   };
 
   return (

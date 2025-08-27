@@ -28,24 +28,29 @@ export function UTMifyPixel() {
           
           // Função para verificar e disparar o pageview
           function checkAndTrackPageview() {
-            if (typeof window.UTMify !== 'undefined' && !pageviewDispatched) {
-              window.UTMify.track('pageview');
-              pageviewDispatched = true;
-              return true;
+            if (typeof window.UTMify !== 'undefined' && window.UTMify.track && !pageviewDispatched) {
+              try {
+                window.UTMify.track('pageview');
+                pageviewDispatched = true;
+                return true;
+              } catch (error) {
+                console.warn('UTMify track error:', error);
+                return false;
+              }
             }
             return false;
           }
 
-          // Tenta disparar o pageview a cada 200ms até 5 segundos
+          // Tenta disparar o pageview a cada 500ms até 3 segundos
           let attempts = 0;
-          const maxAttempts = 25; // 5 segundos / 200ms = 25 tentativas
+          const maxAttempts = 6; // 3 segundos / 500ms = 6 tentativas
           
           const interval = setInterval(() => {
             attempts++;
             if (checkAndTrackPageview() || attempts >= maxAttempts) {
               clearInterval(interval);
             }
-          }, 200);
+          }, 500);
         `}
       </Script>
       <Script
