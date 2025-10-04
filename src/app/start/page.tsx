@@ -111,7 +111,7 @@ export default function Home() {
             }
           }
         
-        if (storedVideoTime > 20) { // 20 segundos
+        if (storedVideoTime > 1951) { // 32:31 minutos (1951 segundos)
           setVisible(true);
         }
       }, 1000);
@@ -124,7 +124,7 @@ export default function Home() {
       <UTMifyPixel />
         {/* <Header /> */}
         {/* <NewsTicker /> */}
-        <div className="px-6 md:px-8 py-4">
+        <div className="px-6 md:px-8 py-4 flex flex-col min-h-screen">
           <div className="flex flex-col items-center py-4">
             <div className="w-full max-w-2xl">
               <h1 className="text-2xl md:text-4xl leading-tight mb-2 text-left md:text-center">
@@ -146,7 +146,8 @@ export default function Home() {
           </div>
           
           {visible && (
-        <div className="flex w-full max-w-sm flex-col justify-center items-center text-center gap-6">
+        <div className="flex w-full justify-center items-center flex-1">
+          <div className="flex w-full max-w-sm flex-col justify-center items-center text-center gap-6">
           {bottles.map((bottle) => (
             <a
               href={appendSearchParams(bottle.link)}
@@ -238,6 +239,7 @@ export default function Home() {
               </Card>
             </a>
           ))}
+          </div>
         </div>
       )}
           {/* Seção de comentários */}
