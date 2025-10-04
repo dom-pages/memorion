@@ -10,7 +10,21 @@ export async function isSuspiciousIP(ip: string, headers: Headers): Promise<bool
   try {
     // PROXY CHECK
     const proxyCheckResponse = await fetch(`https://proxycheck.io/v2/${ip}?key=${PROXYCHECK_API_KEY}&vpn=1&asn=1`);
-    const proxyCheckData = await proxyCheckResponse.json();
+    
+    if (!proxyCheckResponse.ok) {
+      console.log('ProxyCheck API not available, skipping...');
+      return false;
+    }
+    
+    const proxyCheckText = await proxyCheckResponse.text();
+    let proxyCheckData;
+    
+    try {
+      proxyCheckData = JSON.parse(proxyCheckText);
+    } catch (error) {
+      console.log('ProxyCheck response is not valid JSON, skipping...');
+      return false;
+    }
 
     console.log('ProxyCheck:', proxyCheckData);
 
@@ -48,7 +62,21 @@ export async function isSuspiciousIP(ip: string, headers: Headers): Promise<bool
 
     // DATACENTER CHECK
     const ipInfoResponse = await fetch(`https://ipinfo.io/${ip}/json?token=${IPINFO_API_KEY}`);
-    const ipInfoData = await ipInfoResponse.json();
+    
+    if (!ipInfoResponse.ok) {
+      console.log('IPInfo API not available, skipping...');
+      return false;
+    }
+    
+    const ipInfoText = await ipInfoResponse.text();
+    let ipInfoData;
+    
+    try {
+      ipInfoData = JSON.parse(ipInfoText);
+    } catch (error) {
+      console.log('IPInfo response is not valid JSON, skipping...');
+      return false;
+    }
 
     console.log('IPinfo:' , ipInfoData);
 
