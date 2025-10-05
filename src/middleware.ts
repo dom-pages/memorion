@@ -3,8 +3,8 @@ import { NextRequest, NextResponse } from 'next/server';
 const FACEBOOK_PARAM_PASS = 'b6mP2e7KIKH7i2w';
 
 const domainMap: Record<string, string> = {
-  "newshealth.online": "1",
-  "news-today.site": "2",
+  "newshealth.online/health": "1",
+  "newshealth.online": "2",
   "onlyhealth.online": "3",
 };
 
