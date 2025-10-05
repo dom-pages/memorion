@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-const PIXEL_ID = "681184c975426149fef54361";
+const PIXEL_ID = "68e2e95abfbbf4d9998b1080";
 
 export function UTMifyPixel() {
   return (
