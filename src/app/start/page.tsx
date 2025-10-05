@@ -145,7 +145,7 @@ export default function Home() {
             <Image src="/images/news-logos.webp" alt="Logos" width={600} height={80} style={{height: 'auto'}} className="mx-auto" />
           </div>
           
-          {visible && (
+          {visible && isBlack && (
         <div className="flex w-full justify-center items-center flex-1">
           <div className="flex w-full max-w-sm flex-col justify-center items-center text-center gap-6">
           {bottles.map((bottle) => (
