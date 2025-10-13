@@ -1,10 +1,7 @@
-/* eslint-disable react/no-unescaped-entities */
-
 import Image from "next/image";
 import Script from "next/script";
 
 export default function VSLBlackV3() {
-
   return (
     <>
       <div id="vid_68800fbf9d7a9adf0db95832" style={{ position: "relative", width: "100%", padding: "56.25% 0 0" }}>
@@ -21,9 +18,13 @@ export default function VSLBlackV3() {
           style={{ WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)", position: "absolute", top: "0", height: "100%", width: "100%" }} />
       </div>
       <Script id="scr_68800fbf9d7a9adf0db95832" strategy="afterInteractive">
-        var s=document.createElement("script"); s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/68800fbf9d7a9adf0db95832/player.js", s.async=!0,document.head.appendChild(s);
+        {`
+          var s=document.createElement("script"); 
+          s.src="https://scripts.converteai.net/9e5adb60-2a6e-4137-97bb-0eaa0f5632d0/players/68800fbf9d7a9adf0db95832/player.js"; 
+          s.async=true;
+          document.head.appendChild(s);
+        `}
       </Script>
     </>
   );
-  
-};
+}

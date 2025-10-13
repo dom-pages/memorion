@@ -166,7 +166,6 @@ export default function Home() {
           </div>
           
           <div className="flex justify-center my-8">
-            <Image src="/images/logos.webp" alt="Logos" width={600} height={80} style={{height: 'auto'}} />
           </div>
         </div>
       </>
