@@ -65,18 +65,6 @@ export default function Home() {
         <Header />
         <NewsTicker />
         <div className="px-6 md:px-8 py-4">
-          <div className="flex flex-col items-center py-4">
-            <div className="w-full max-w-2xl">
-              <h1 className="text-2xl md:text-4xl font-bold leading-tight mb-2 text-left md:text-center">
-                <span className="text-[#B82613]">Exclusive:</span>
-                <span className="text-black"> The Discovery That Could Break the Pain Industry — And Was Banned by Big Pharma</span>
-              </h1>
-              <div className="font-bold mb-1 md:text-center text-left">By James Carter – Investigative Health Reporter</div>
-              <div className="text-gray-500 mb-2 text-base md:text-center text-left">
-                Updated 27 minutes ago - {currentDate || 'Fri, June 20, 2025'}
-              </div>
-            </div>
-          </div>
           <div className="flex flex-col items-center">
             <div className="w-full max-w-3xl">
               {isBlack ? <VSLBlackV1 /> : <VSLWhite />}

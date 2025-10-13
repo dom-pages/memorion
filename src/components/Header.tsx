@@ -11,14 +11,7 @@ const Header = () => {
         </button>
         
         <div className="flex-1 flex justify-center">
-          <Image 
-            src="/images/cnn.webp" 
-            alt="CNN" 
-            width={120} 
-            height={40} 
-            style={{height: 'auto', width: 'auto'}}
-            className="h-8"
-          />
+          {/* Logo removido */}
         </div>
         
         <div className="w-10"></div> {/* Espaçador para manter o logo centralizado */}

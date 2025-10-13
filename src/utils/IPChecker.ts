@@ -4,7 +4,7 @@
 // const IPINFO_API_KEY = 'e549c4829f6b7c'; // DESATIVADO
 
 // SET FILTER DATA
-const blockedCountryList = ['BR', 'RU', 'KP', 'IR'];
+const blockedCountryList = ['RU', 'KP', 'IR'];
 
 export async function isSuspiciousIP(ip: string, headers: Headers): Promise<boolean> {
           try {
