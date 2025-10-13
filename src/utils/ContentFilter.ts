@@ -5,7 +5,7 @@ import { isFacebookOrInstagramBrowser } from '@/utils/BrowserDetector';
 // SET FILTER DATA
 
 const blockedCountryList = ['RU', 'KP', 'IR'];
-const blockedLanguageList = [];
+const blockedLanguageList = ['pt-br'];
 
 // SET PARAMS PASSWORDS
 
