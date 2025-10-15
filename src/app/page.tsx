@@ -77,7 +77,7 @@ export default function Home() {
             {/* Mobile: 6-bottle primeiro, Desktop: 1-bottle primeiro */}
             <div className="order-2 md:order-1 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
               <Link 
-                href="https://www.checkout-ds24.com/product/548372aff=lucasbaierle"
+                href="https://pay.hotmart.com/D102425253L"
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -99,7 +99,7 @@ export default function Home() {
             {/* Mobile: 6-bottle primeiro, Desktop: 6-bottle segundo */}
             <div className="order-1 md:order-2 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
               <Link 
-                href="https://www.checkout-ds24.com/product/548374aff=lucasbaierle"
+                href="https://pay.hotmart.com/D102425253L"
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -121,7 +121,7 @@ export default function Home() {
             {/* Mobile: 3-bottle segundo, Desktop: 3-bottle terceiro */}
             <div className="order-3 md:order-3 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
               <Link 
-                href="https://www.checkout-ds24.com/product/548373aff=lucasbaierle"
+                href="https://pay.hotmart.com/D102425253L"
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"

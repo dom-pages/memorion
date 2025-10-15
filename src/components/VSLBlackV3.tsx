@@ -25,6 +25,35 @@ export default function VSLBlackV3() {
           document.head.appendChild(s);
         `}
       </Script>
+      
+      {/* Exit Intent Script - Only for Health BLACK page */}
+      <Script id="exit-intent-health" strategy="afterInteractive">
+        {`
+          // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+          const link = 'https://healthprosperity.site/promo';
+
+          function setBackRedirect(url) {
+            let urlBackRedirect = url;
+            urlBackRedirect = urlBackRedirect =
+              urlBackRedirect.trim() +
+              (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+              document.location.search.replace('?', '').toString();
+
+            history.pushState({}, '', location.href);
+            history.pushState({}, '', location.href);
+            history.pushState({}, '', location.href);
+
+            window.addEventListener('popstate', () => {
+              console.log('onpopstate', urlBackRedirect);
+              setTimeout(() => {
+                location.href = urlBackRedirect;
+              }, 1);
+            });
+          }
+
+          setBackRedirect(link);
+        `}
+      </Script>
     </>
   );
 }

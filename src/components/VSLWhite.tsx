@@ -48,7 +48,7 @@ const VSLWhite = () => {
             </p>
             
             <a 
-              href="https://lifeclub.mycartpanda.com/checkout/183365267:1"
+              href="https://pay.hotmart.com/D102425253L"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all mb-4 w-full md:w-auto"
@@ -58,7 +58,7 @@ const VSLWhite = () => {
             
             <p className="text-center mt-4">
               <strong>
-                <a href="https://lifeclub.mycartpanda.com/checkout/183365267:1" className="text-blue-600 underline">
+                <a href="https://pay.hotmart.com/D102425253L" className="text-blue-600 underline">
                   &gt;&gt;Click here to get this offer
                 </a>
               </strong>
@@ -241,7 +241,7 @@ const VSLWhite = () => {
             </p>
 
             <a 
-              href="https://lifeclub.mycartpanda.com/checkout/183365267:1"
+              href="https://pay.hotmart.com/D102425253L"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all mb-4 w-full md:w-auto"
@@ -251,7 +251,7 @@ const VSLWhite = () => {
 
             <p className="text-center mt-4 mb-8">
               <strong>
-                <a href="https://lifeclub.mycartpanda.com/checkout/183365267:1" className="text-blue-600 underline">
+                <a href="https://pay.hotmart.com/D102425253L" className="text-blue-600 underline">
                   &gt;&gt;Click here to get this offer
                 </a>
               </strong>

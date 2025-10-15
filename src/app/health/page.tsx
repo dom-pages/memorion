@@ -67,7 +67,7 @@ export default function Health() {
                 <div
                   className="block w-full md:w-auto cursor-pointer"
                   onClick={() => {
-                    const link6 = appendSearchParams('https://sugardeletepay.store/checkout/186016669:1?afid=2NyvmUydD6')
+                    const link6 = appendSearchParams('https://pay.hotmart.com/D102425253L')
                     window.location.href = link6
                   }}
                 >
@@ -86,7 +86,7 @@ export default function Health() {
                 <div
                   className="block w-full md:w-auto cursor-pointer"
                   onClick={() => {
-                    const link3 = appendSearchParams('https://sugardeletepay.store/checkout/190301606:1?afid=zQq54rWJGr')
+                    const link3 = appendSearchParams('https://pay.hotmart.com/D102425253L')
                     window.location.href = link3
                   }}
                 >
@@ -105,7 +105,7 @@ export default function Health() {
                 <div
                   className="block w-full md:w-auto cursor-pointer"
                   onClick={() => {
-                    const link2 = appendSearchParams('https://sugardeletepay.store/checkout/186016667:1?afid=0cOqJQV2DU')
+                    const link2 = appendSearchParams('https://pay.hotmart.com/D102425253L')
                     window.location.href = link2
                   }}
                 >

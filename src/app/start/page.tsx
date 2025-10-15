@@ -48,7 +48,7 @@ export default function Home() {
       setIsLoading(false);
       setShowSuccess(true);
       setTimeout(() => {
-        window.location.href = appendSearchParams("https://pay.hotmart.com/X88000000X?checkoutMode=10");
+        window.location.href = appendSearchParams("https://pay.hotmart.com/D102425253L");
       }, 1000);
     }, 2000);
   };
