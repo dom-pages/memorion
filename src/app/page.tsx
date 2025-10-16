@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Header from '@/components/Header';
 import NewsTicker from '@/components/NewsTicker';
 import VSLBlackV1 from '@/components/VSLBlackV1';
@@ -10,11 +10,23 @@ import { UTMifyPixel } from '@/components/UTMifyPixel';
 import { useTraffic } from '@/components/TrafficProvider.client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 export default function Home() {
   const { isBlack } = useTraffic();
   const [currentDate, setCurrentDate] = useState('');
   const [visible, setVisible] = useState(false);
+  const searchParams = useSearchParams();
+  
+  const appendSearchParams = useCallback(
+    (baseUrl: string) => {
+      const queryString = searchParams.toString();
+      if (!queryString) return baseUrl;
+      const separator = baseUrl.includes('?') ? '&' : '?';
+      return `${baseUrl}${separator}${queryString}`;
+    },
+    [searchParams]
+  );
   
   // Monitora o tempo do vídeo e controla visibilidade dos cards
   useEffect(() => {
@@ -76,12 +88,11 @@ export default function Home() {
           <div className={`flex flex-col md:flex-row justify-center items-center gap-6 my-8 ${visible ? 'mostrar' : 'esconder'}`}>
             {/* Mobile: 6-bottle primeiro, Desktop: 1-bottle primeiro */}
             <div className="order-2 md:order-1 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
-              <Link 
-                href="https://pay.hotmart.com/D102425253L"
+              <a 
+                href={appendSearchParams("https://pay.hotmart.com/D102425253L")}
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
-                prefetch={false}
               >
                 <Image 
                   src="/images/1-bottle.png" 
@@ -93,17 +104,16 @@ export default function Home() {
                   priority
                 />
                 <span className="sr-only">iniciar checkout</span>
-              </Link>
+              </a>
             </div>
             
             {/* Mobile: 6-bottle primeiro, Desktop: 6-bottle segundo */}
             <div className="order-1 md:order-2 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
-              <Link 
-                href="https://pay.hotmart.com/D102425253L"
+              <a 
+                href={appendSearchParams("https://pay.hotmart.com/D102425253L")}
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
-                prefetch={false}
               >
                 <Image 
                   src="/images/6-bottle.png" 
@@ -115,17 +125,16 @@ export default function Home() {
                   priority
                 />
                 <span className="sr-only">iniciar checkout</span>
-              </Link>
+              </a>
             </div>
             
             {/* Mobile: 3-bottle segundo, Desktop: 3-bottle terceiro */}
             <div className="order-3 md:order-3 w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105">
-              <Link 
-                href="https://pay.hotmart.com/D102425253L"
+              <a 
+                href={appendSearchParams("https://pay.hotmart.com/D102425253L")}
                 className="block w-full md:w-auto cursor-pointer transition-all duration-300 hover:opacity-80 hover:scale-105"
                 target="_blank"
                 rel="noopener noreferrer"
-                prefetch={false}
               >
                 <Image 
                   src="/images/3-bottle.png" 
@@ -137,7 +146,7 @@ export default function Home() {
                   priority
                 />
                 <span className="sr-only">iniciar checkout</span>
-              </Link>
+              </a>
             </div>
           </div>
           
