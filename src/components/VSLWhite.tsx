@@ -32,7 +32,7 @@ const VSLWhite = () => {
           {/* Imagem Principal */}
           <div className="mb-8">
             <img 
-              src="https://lossecretosdeltercerojo.com/wp-content/uploads/2024/11/Blue-And-White-Modern-Responsive-Website-Development-Services-Instagram-Post-3-e1732546303863-1024x550.jpg"
+              src="https://i.ibb.co/r264kvJM/ig.png"
               alt="Program"
               className="w-full rounded-lg shadow-lg"
             />
@@ -198,7 +198,7 @@ const VSLWhite = () => {
 
             <div className="mb-6">
               <img 
-                src="https://lossecretosdeltercerojo.com/wp-content/uploads/2024/11/Blue-And-White-Modern-Responsive-Website-Development-Services-Instagram-Post-3-e1732546303863-1024x550.jpg"
+                src="https://i.ibb.co/r264kvJM/ig.png"
                 alt="Program"
                 className="w-full rounded-lg shadow-lg mb-6"
               />
