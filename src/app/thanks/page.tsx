@@ -26,7 +26,7 @@ export default async function Page() {
             <p>You will receive an email with the title: <br /><strong>&ldquo;Your access was released&rdquo;</strong>.</p>
             <p>Don't forget to check your spam or junk folder, some emails may end up there by mistake.</p>
             <p>If you have any questions or difficulty accessing, <u>send an email to our support</u>:</p>
-            <p> - <strong className="text-green-600 hover:underline"><Link href="mailto:suporte@jornadacommeuanjo.site">suporte@jornadacommeuanjo.site</Link></strong></p>
+            <p> - <strong className="text-green-600 hover:underline"><Link href="mailto:support@godfrequency.site">support@godfrequency.site</Link></strong></p>
             <p>We will respond immediately and help you with everything you need.</p>
             <p>A big hug, see you on the platform to start studying!</p>
           </div>
