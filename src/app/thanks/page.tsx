@@ -1,8 +1,11 @@
 import Link from "next/link";
+import { UTMifyPixel } from "@/components/UTMifyPixel";
 
 export default async function Page() {
   return (
-    <div className="min-h-screen w-full">
+    <>
+      <UTMifyPixel />
+      <div className="min-h-screen w-full">
       {/* HERO - Verde */}
       <section className="w-full bg-green-600">
         <div className="max-w-3xl mx-auto px-4 py-8 text-center">
@@ -32,6 +35,7 @@ export default async function Page() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

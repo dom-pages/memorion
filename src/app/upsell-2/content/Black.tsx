@@ -2,6 +2,7 @@
 
 import Progress from "@/components/Progress";
 import HotmartUpsell from "@/components/HotmartUpsell";
+import { UTMifyPixel } from "@/components/UTMifyPixel";
 import { useEffect } from "react";
 
 export default function Black() {
@@ -23,6 +24,7 @@ export default function Black() {
 
   return (
     <>
+      <UTMifyPixel />
       <div className="w-full bg-red-600 text-white">
         <div className="mx-auto px-4 sm:px-6 py-4 font-medium">
           <div className="text-sm font-semibold text-center">

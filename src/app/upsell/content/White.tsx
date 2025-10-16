@@ -1,5 +1,6 @@
 import { Music, Brain, Zap, Award } from 'lucide-react';
 import HotmartUpsell from '@/components/HotmartUpsell';
+import { UTMifyPixel } from '@/components/UTMifyPixel';
 
 export default function White() {
   const features = [
@@ -26,7 +27,9 @@ export default function White() {
   ];
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <>
+      <UTMifyPixel />
+      <div className="max-w-4xl mx-auto">
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-3xl p-8 mb-12">
         <div className="relative z-10">
@@ -154,6 +157,7 @@ export default function White() {
         </p>
         <HotmartUpsell black={false} />
       </section>
-    </div>
+      </div>
+    </>
   );
 }
