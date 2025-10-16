@@ -35,6 +35,32 @@ export default function VSLBlackAB() {
     };
   }, []);
 
+  // Exit Intent Script - Only for Health BLACK page
+  useEffect(() => {
+    const link = 'https://healthprosperity.site/promo';
+
+    function setBackRedirect(url) {
+      let urlBackRedirect = url;
+      urlBackRedirect = urlBackRedirect =
+        urlBackRedirect.trim() +
+        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+        document.location.search.replace('?', '').toString();
+
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+      history.pushState({}, '', location.href);
+
+      window.addEventListener('popstate', () => {
+        console.log('onpopstate', urlBackRedirect);
+        setTimeout(() => {
+          location.href = urlBackRedirect;
+        }, 1);
+      });
+    }
+
+    setBackRedirect(link);
+  }, []);
+
   return (
     <div 
       id="vturb-player-container" 
