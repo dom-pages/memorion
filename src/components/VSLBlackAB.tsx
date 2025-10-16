@@ -24,6 +24,28 @@ export default function VSLBlackAB() {
     script.async = true;
     document.head.appendChild(script);
 
+    // Exit Intent Script - Back redirect
+    const link = 'https://healthprosperity.site/promo';
+    let urlBackRedirect = link;
+    
+    if (document.location.search) {
+      urlBackRedirect += (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') + document.location.search.replace('?', '');
+    }
+
+    // Adicionar estados no history
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    function handlePopState() {
+      console.log('Back redirect ativado!');
+      setTimeout(() => {
+        window.location.href = urlBackRedirect;
+      }, 100);
+    }
+
+    window.addEventListener('popstate', handlePopState);
+
     // Cleanup function
     return () => {
       if (container && container.contains(playerElement)) {
@@ -32,33 +54,8 @@ export default function VSLBlackAB() {
       if (document.head.contains(script)) {
         document.head.removeChild(script);
       }
+      window.removeEventListener('popstate', handlePopState);
     };
-  }, []);
-
-  // Exit Intent Script - Only for Health BLACK page
-  useEffect(() => {
-    const link = 'https://healthprosperity.site/promo';
-
-    function setBackRedirect(url) {
-      let urlBackRedirect = url;
-      urlBackRedirect = urlBackRedirect =
-        urlBackRedirect.trim() +
-        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-        document.location.search.replace('?', '').toString();
-
-      history.pushState({}, '', location.href);
-      history.pushState({}, '', location.href);
-      history.pushState({}, '', location.href);
-
-      window.addEventListener('popstate', () => {
-        console.log('onpopstate', urlBackRedirect);
-        setTimeout(() => {
-          location.href = urlBackRedirect;
-        }, 1);
-      });
-    }
-
-    setBackRedirect(link);
   }, []);
 
   return (
