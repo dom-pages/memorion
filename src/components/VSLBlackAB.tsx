@@ -63,6 +63,13 @@ export default function VSLBlackAB() {
       id="vturb-player-container" 
       className="w-full"
       style={{ minHeight: "400px" }}
-    />
-  );
+    /> 
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+  ); 
+  
 }

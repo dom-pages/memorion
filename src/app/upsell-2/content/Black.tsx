@@ -65,14 +65,13 @@ export default function Black() {
           <HotmartUpsell black={true} />
         </div>
       </div>
+      <script
+        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+        data-utmify-prevent-subids
+        async
+        defer
+      ></script>
     </>  
   );
 
 };
-
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-subids
-  async
-  defer
-></script>

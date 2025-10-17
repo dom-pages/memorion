@@ -35,4 +35,10 @@ export function UTMifyPixel() {
       />
     </>
   );
-}
+}<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
