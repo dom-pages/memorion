@@ -9,29 +9,9 @@ export default async function Page() {
 
   // WHITE CONTENT
   if (whiteContent) {
-    return (
-      <>
-        <White />
-        <script
-          src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-          data-utmify-prevent-subids
-          async
-          defer
-        ></script>
-      </>
-    );
+    return <White />;
   }
 
   // BLACK CONTENT
-  return (
-    <>
-      <Black />
-      <script
-        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-        data-utmify-prevent-subids
-        async
-        defer
-      ></script>
-    </>
-  );
+  return <Black />;
 }

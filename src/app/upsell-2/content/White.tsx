@@ -151,12 +151,6 @@ export default function White() {
         <HotmartUpsell black={false} />
       </section>
       </div>
-      <script
-        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-        data-utmify-prevent-subids
-        async
-        defer
-      ></script>
     </>
   );
 }

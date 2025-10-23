@@ -3,28 +3,16 @@
 import Progress from "@/components/Progress";
 import HotmartUpsell from "@/components/HotmartUpsell";
 import { UTMifyPixel } from "@/components/UTMifyPixel";
-import { useEffect } from "react";
+import Script from "next/script";
 
 export default function Black() {
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://scripts.converteai.net/853c4f04-8442-44da-b89d-0541d78036bb/players/688a9599f20f5056a87f08ae/player.js";
-    script.async = true;
-    document.head.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      const existingScript = document.querySelector('script[src*="688a9599f20f5056a87f08ae"]');
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
-
   return (
     <>
       <UTMifyPixel />
+      <Script
+        src="https://scripts.converteai.net/853c4f04-8442-44da-b89d-0541d78036bb/players/688a9599f20f5056a87f08ae/player.js"
+        strategy="afterInteractive"
+      />
       <div className="w-full bg-red-600 text-white">
         <div className="mx-auto px-4 sm:px-6 py-4 font-medium">
           <div className="text-sm font-semibold text-center">
@@ -65,13 +53,6 @@ export default function Black() {
           <HotmartUpsell black={true} />
         </div>
       </div>
-      <script
-        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-        data-utmify-prevent-subids
-        async
-        defer
-      ></script>
     </>  
   );
-
-};
+}

@@ -5,12 +5,6 @@ export default async function Page() {
   return (
     <>
       <UTMifyPixel />
-      <script
-        src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-        data-utmify-prevent-subids
-        async
-        defer
-      ></script>
       <div className="min-h-screen w-full">
       {/* HERO - Verde */}
       <section className="w-full bg-green-600">
