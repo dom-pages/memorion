@@ -5,7 +5,7 @@ import { isFacebookOrInstagramBrowser } from '@/utils/BrowserDetector';
 // SET FILTER DATA
 
 const blockedCountryList = ['BR', 'RU', 'KP', 'IR'];
-const blockedLanguageList: string[] = ['pt-br'];
+const blockedLanguageList = ['pt-br'];
 
 // SET PARAMS PASSWORDS
 
@@ -102,4 +102,6 @@ export async function getUserLayer(): Promise<number> {
   console.log('BLACK CONTENT: CLEAN');
   return 3;
 
-};
+}; 
+
+
