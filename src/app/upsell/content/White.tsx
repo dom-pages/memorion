@@ -1,162 +1,151 @@
-import { Music, Brain, Zap, Award } from 'lucide-react';
+'use client';
+
+import React from 'react';
 import HotmartUpsell from '@/components/HotmartUpsell';
 import { UTMifyPixel } from '@/components/UTMifyPixel';
 
 export default function White() {
-  const features = [
-    {
-      title: "Relaxation and Stress Relief",
-      description: "Specifically designed frequencies to reduce anxiety",
-      icon: <Music className="text-blue-500" size={24} />,
-    },
-    {
-      title: "Enhanced Focus",
-      description: "Beta patterns to improve concentration and alertness",
-      icon: <Brain className="text-green-500" size={24} />,
-    },
-    {
-      title: "Deep Sleep",
-      description: "Delta frequencies for restorative and regenerative sleep",
-      icon: <Zap className="text-purple-500" size={24} />,
-    },
-    {
-      title: "Better Meditation",
-      description: "Theta patterns to deepen meditation and creativity",
-      icon: <Award className="text-orange-500" size={24} />,
-    },
-  ];
-
   return (
     <>
       <UTMifyPixel />
-      <div className="max-w-4xl mx-auto">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-blue-600 to-purple-600 text-white rounded-3xl p-8 mb-12">
-        <div className="relative z-10">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-4">
-            Binaural Therapy Protocol
+      <div className="max-w-6xl mx-auto px-5">
+        {/* Header Section */}
+        <div className="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl p-12 md:p-16 text-white mb-10 shadow-2xl">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Manual de Nutrición Interior
           </h1>
-          <div className="text-2xl sm:text-3xl font-semibold mb-6">
-            Sound Therapy for Wellness
-          </div>
-          <p className="text-lg sm:text-xl text-blue-100 max-w-2xl">
-            From &ldquo;listening passively&rdquo; to transforming your wellness. Experience therapeutic sound frequencies that enhance relaxation, improve focus, deepen sleep, and amplify meditation—without complicated procedures.
+          <h2 className="text-2xl md:text-3xl font-medium mb-5 opacity-95">
+            Nutrición Natural para el Bienestar Nervioso
+          </h2>
+          <p className="text-lg md:text-xl leading-relaxed opacity-90">
+            Descubre cómo alimentos y nutrientes específicos pueden apoyar naturalmente la salud de tu sistema nervioso. Una guía práctica basada en principios nutricionales para mejorar tu bienestar desde adentro.
           </p>
         </div>
-        <div className="absolute right-0 bottom-0 opacity-10">
-          <Award size={240} />
-        </div>
-      </div>
 
-      {/* Features */}
-      <section className="my-12 bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-        <h2 className="text-2xl font-bold mb-8 text-gray-900">What's Included</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="p-6 rounded-xl bg-gradient-to-br from-gray-50 to-white shadow-sm border border-gray-100"
-            >
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-white rounded-lg shadow-sm">
-                  {feature.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Introduction */}
-      <section className="my-12">
-        <p className="text-lg text-gray-700 mb-6">
-          Welcome to <strong>Binaural Therapy Protocol</strong>, an audio therapy program based on binaural beats, a sound technique recognized by researchers.
-        </p>
+        {/* Qué Incluye */}
+        <h2 className="text-3xl font-bold mb-8 text-gray-800">Qué Incluye</h2>
         
-        <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">What are Binaural Beats?</h3>
-          <p className="text-gray-700">
-            Binaural beats are an emerging form of sound wave therapy where each ear receives a slightly different frequency. Your brain perceives this as a single tone, potentially helping to influence your mental state.
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="text-4xl mb-4">🥗</div>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800">Nutrición Específica</h3>
+            <p className="text-gray-600 text-sm">
+              Alimentos diseñados para apoyar el sistema nervioso de forma natural
+            </p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="text-4xl mb-4">🧠</div>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800">Enfoque Integral</h3>
+            <p className="text-gray-600 text-sm">
+              Estrategias nutricionales para mejorar el bienestar general
+            </p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="text-4xl mb-4">📋</div>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800">Guías Prácticas</h3>
+            <p className="text-gray-600 text-sm">
+              Planes de alimentación fáciles de seguir en tu rutina diaria
+            </p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+            <div className="text-4xl mb-4">💚</div>
+            <h3 className="text-xl font-semibold mb-3 text-gray-800">Bienestar Natural</h3>
+            <p className="text-gray-600 text-sm">
+              Mejora tu calidad de vida con nutrición consciente
+            </p>
+          </div>
+        </div>
+
+        {/* Info Box */}
+        <div className="bg-white rounded-2xl p-9 mb-10 shadow-lg">
+          <p className="mb-6 text-gray-700">
+            Bienvenido al <strong>Manual de Nutrición Interior</strong>, un programa educativo basado en nutrición natural para apoyar la salud del sistema nervioso.
+          </p>
+          
+          <h3 className="text-2xl font-bold mb-5 text-gray-800">¿Qué es la Nutrición Interior?</h3>
+          <p className="text-gray-700 mb-8">
+            La nutrición interior es un enfoque que utiliza alimentos específicos y nutrientes para apoyar naturalmente el funcionamiento óptimo del sistema nervioso y promover el bienestar general.
+          </p>
+          
+          <h3 className="text-2xl font-bold mb-5 text-gray-800">Beneficios Potenciales</h3>
+          
+          <ul className="space-y-4 mb-8">
+            <li className="py-4 border-b border-gray-200 last:border-b-0">
+              <h4 className="text-gray-800 font-semibold text-lg mb-2 flex items-center gap-3">
+                <span className="text-green-500 text-xl">✓</span> Apoyo al Sistema Nervioso
+              </h4>
+              <p className="text-gray-600 ml-8 text-sm">
+                Nutrientes específicos que pueden contribuir al funcionamiento saludable del sistema nervioso.
+              </p>
+            </li>
+            <li className="py-4 border-b border-gray-200 last:border-b-0">
+              <h4 className="text-gray-800 font-semibold text-lg mb-2 flex items-center gap-3">
+                <span className="text-green-500 text-xl">✓</span> Mejor Bienestar General
+              </h4>
+              <p className="text-gray-600 ml-8 text-sm">
+                Una alimentación balanceada puede ayudar a mejorar tu sensación de bienestar diario.
+              </p>
+            </li>
+            <li className="py-4 border-b border-gray-200 last:border-b-0">
+              <h4 className="text-gray-800 font-semibold text-lg mb-2 flex items-center gap-3">
+                <span className="text-green-500 text-xl">✓</span> Enfoque Preventivo
+              </h4>
+              <p className="text-gray-600 ml-8 text-sm">
+                La nutrición adecuada puede ser parte importante del cuidado integral de la salud.
+              </p>
+            </li>
+            <li className="py-4 border-b border-gray-200 last:border-b-0">
+              <h4 className="text-gray-800 font-semibold text-lg mb-2 flex items-center gap-3">
+                <span className="text-green-500 text-xl">✓</span> Hábitos Sostenibles
+              </h4>
+              <p className="text-gray-600 ml-8 text-sm">
+                Aprende a incorporar alimentos beneficiosos de manera práctica y sostenible.
+              </p>
+            </li>
+            <li className="py-4 border-b border-gray-200 last:border-b-0">
+              <h4 className="text-gray-800 font-semibold text-lg mb-2 flex items-center gap-3">
+                <span className="text-green-500 text-xl">✓</span> Calidad de Vida
+              </h4>
+              <p className="text-gray-600 ml-8 text-sm">
+                Los usuarios reportan mejor calidad de vida al implementar estos principios nutricionales.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        {/* Disclaimer */}
+        <div className="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg mb-8">
+          <p className="text-yellow-800">
+            <strong className="text-yellow-900">Importante:</strong> El Manual de Nutrición Interior es una herramienta educativa complementaria. No reemplaza el tratamiento médico profesional. Si experimentas dolor nervioso, molestias crónicas o cualquier condición de salud, consulta a un profesional de la salud.
           </p>
         </div>
-      </section>
 
-      {/* Extended Benefits */}
-      <section className="my-12 bg-gray-50 rounded-2xl p-8">
-        <h2 className="text-2xl font-bold mb-8 text-gray-900">Potential Benefits</h2>
-        <div className="space-y-6">
-          <div className="flex gap-4">
-            <span className="text-green-600 font-bold text-xl">✓</span>
-            <div>
-              <h4 className="font-bold text-gray-900 mb-2">Relaxation and Anxiety Reduction</h4>
-              <p className="text-gray-600">Research suggests that binaural beats may help reduce feelings of anxiety and promote relaxation.</p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <span className="text-green-600 font-bold text-xl">✓</span>
-            <div>
-              <h4 className="font-bold text-gray-900 mb-2">Better Concentration and Focus</h4>
-              <p className="text-gray-600">Specific frequencies can help increase focus, concentration, and alertness during daily activities.</p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <span className="text-green-600 font-bold text-xl">✓</span>
-            <div>
-              <h4 className="font-bold text-gray-900 mb-2">Deeper Sleep</h4>
-              <p className="text-gray-600">Delta frequency patterns may be associated with more restorative and regenerative sleep.</p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <span className="text-green-600 font-bold text-xl">✓</span>
-            <div>
-              <h4 className="font-bold text-gray-900 mb-2">Enhanced Meditation</h4>
-              <p className="text-gray-600">Theta patterns can contribute to deeper meditation and increased creativity.</p>
-            </div>
-          </div>
-          <div className="flex gap-4">
-            <span className="text-green-600 font-bold text-xl">✓</span>
-            <div>
-              <h4 className="font-bold text-gray-900 mb-2">Overall Wellbeing</h4>
-              <p className="text-gray-600">Users report improved quality of life and better sense of wellbeing when incorporating binaural beats into their routine.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Important Notice */}
-      <section className="my-12 bg-yellow-50 rounded-2xl p-8 border-l-4 border-yellow-400">
-        <p className="text-gray-800">
-          <strong>Important:</strong> Binaural beats are a complementary wellness tool. They do not replace professional medical treatment. If you are dealing with anxiety, depression, or other health conditions, consult a healthcare professional.
-        </p>
-      </section>
-
-      {/* Testimonial */}
-      <section className="my-12">
-        <div className="bg-gray-100 rounded-2xl p-8 border-l-4 border-blue-600">
-          <p className="text-gray-800 italic text-lg mb-4">
-            &ldquo;Since I started using binaural beats, I feel more relaxed during the day and sleep better at night. It's a simple but effective addition to my wellness routine.&rdquo;
+        {/* Testimonial */}
+        <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-lg mb-8 italic">
+          <p className="text-blue-800 text-lg mb-4">
+            "Desde que comencé a seguir las recomendaciones del manual, me siento mejor en mi día a día. Es un enfoque simple pero efectivo para cuidar mi bienestar desde la alimentación."
           </p>
-          <p className="text-gray-600 font-semibold">- Maria S.</p>
+          <span className="text-blue-900 font-semibold not-italic">- Carmen R.</span>
         </div>
-      </section>
 
-      {/* Guarantee */}
-      <section className="my-12 bg-green-50 rounded-2xl p-8 border-2 border-green-500">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">✓ 100% Guarantee - 90 Days</h3>
-        <p className="text-center text-gray-700">If you're not satisfied, we'll refund your full investment.</p>
-      </section>
+        {/* Guarantee */}
+        <div className="bg-green-100 border-2 border-green-500 p-8 rounded-2xl text-center mb-8">
+          <h3 className="text-green-800 text-2xl font-bold mb-3">✓ 100% Garantía - 90 Días</h3>
+          <p className="text-green-700 text-lg">Si no estás satisfecho, reembolsamos tu inversión completa.</p>
+        </div>
 
-      {/* Disclaimer & Hotmart */}
-      <section className="space-y-8">
-        <p className="text-sm text-gray-500 text-center max-w-2xl mx-auto">
-          Educational content. This product does not replace professional medical care. Consult a healthcare professional before use.
+        {/* Footer Note */}
+        <p className="text-center text-gray-500 text-sm py-8">
+          Contenido educativo. Este producto no reemplaza atención médica profesional. Consulta a un profesional de la salud para su uso.
         </p>
-        <HotmartUpsell black={false} />
-      </section>
+
+        {/* Hotmart Upsell */}
+        <div className="mt-8">
+          <HotmartUpsell black={false} />
+        </div>
       </div>
     </>
   );

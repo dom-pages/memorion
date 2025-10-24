@@ -3,51 +3,30 @@
 import Progress from "@/components/Progress";
 import HotmartUpsell from "@/components/HotmartUpsell";
 import { UTMifyPixel } from "@/components/UTMifyPixel";
-import Script from "next/script";
 
 export default function Black() {
   return (
     <>
       <UTMifyPixel />
-      <Script
-        src="https://scripts.converteai.net/853c4f04-8442-44da-b89d-0541d78036bb/players/688a9599f20f5056a87f08ae/player.js"
-        strategy="afterInteractive"
-      />
       <div className="w-full bg-red-600 text-white">
         <div className="mx-auto px-4 sm:px-6 py-4 font-medium">
           <div className="text-sm font-semibold text-center">
-          Please do not close or refresh this page, as errors may occur!
+          ¡Por favor no cierres ni actualices esta página, ya que pueden ocurrir errores!
           </div>
         </div>
       </div>
       <div className="flex flex-col items-center w-full max-w-xl gap-6 px-5 py-6 mx-auto">
         <div className="flex flex-col items-center gap-2.5 text-center">
-          <span className="text-xs italic opacity-80">We are processing your payment...</span>
+          <span className="text-xs italic opacity-80">Estamos procesando tu pago...</span>
           <Progress progress={67} />
         </div>
         <div className="flex flex-col text-center text-sm rounded-3xl gap-5 bg-gradient-to-t appear border-t px-5 py-6 from-gray-100 to-white border-gray-300">
           
-          {/* Vídeo ConverteAI */}
-          <div className="w-full">
-            <div id="vid_688a9599f20f5056a87f08ae" style={{position: 'relative', width: '100%', padding: '177.77777777777777% 0 0'}}>
-              <img 
-                id="thumb_688a9599f20f5056a87f08ae" 
-                src="https://images.converteai.net/853c4f04-8442-44da-b89d-0541d78036bb/players/688a9599f20f5056a87f08ae/thumbnail.jpg" 
-                style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} 
-                alt="thumbnail" 
-              />
-              <div 
-                id="backdrop_688a9599f20f5056a87f08ae" 
-                style={{
-                  WebkitBackdropFilter: 'blur(5px)',
-                  backdropFilter: 'blur(5px)',
-                  position: 'absolute',
-                  top: 0,
-                  height: '100%',
-                  width: '100%'
-                }}
-              />
-            </div>
+          {/* Texto principal */}
+          <div className="w-full bg-white rounded-lg p-6 mb-4">
+            <h2 className="text-3xl font-bold text-center mb-4">
+              97% das pessoas voltam a ter neuropatia após o tratamento acesse o Manual de prevención: Neuropatía No Más👇
+            </h2>
           </div>
           
           <HotmartUpsell black={true} />
