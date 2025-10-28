@@ -272,4 +272,4 @@ const VSLWhite = () => {
   );
 };
 
-export default VSLWhite;
+export default VSLWhite; 
