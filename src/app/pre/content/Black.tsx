@@ -82,8 +82,8 @@ export default function Black() {
                   <div className={styles.angelName}>Raphael</div>
                 </div>
                 <div className={styles.angelCard}>
-                  <img src="/images/miguel3.png" className={styles.angelImage} alt="Miguel" />
-                  <div className={styles.angelName}>Miguel</div>
+                  <img src="/images/miguel3.png" className={styles.angelImage} alt="Michael" />
+                  <div className={styles.angelName}>Michael</div>
                 </div>
                 <div className={styles.angelCard}>
                   <img src="/images/Gabriel.png" className={styles.angelImage} alt="Gabriel" />
