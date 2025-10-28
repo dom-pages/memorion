@@ -3,92 +3,92 @@
 import React from 'react';
 import { useSearchParams } from 'next/navigation';
 
-// Comentários em espanhol (para página com parâmetros/senha - BLACK)
+// Comentários em inglês sobre prosperidade e sons milagrosos (para página com parâmetros/senha - BLACK)
 const blackComments = [
   {
     id: 1,
-    user: 'María Silva',
+    user: 'Sarah Johnson',
     avatar: '/images/profiles/user2.webp',
-    text: "¡Realmente satisfactorio! En solo 7 días mi neuropatía diabética mejoró significativamente. Ya no siento ese hormigueo constante en los pies.",
+    text: "Really Satisfactory! In just 7 days I received an unexpected deposit in my account. Life-changing! 🙏",
     time: '2 min',
     replies: []
   },
   {
     id: 2,
-    user: 'Juan Santos',
+    user: 'Michael Davis',
     avatar: '/images/profiles/user3.webp',
-    text: "He estado tomando el tónico durante 2 semanas y mi dolor neuropático se redujo en un 80%. Mi médico no puede creer la mejora.",
+    text: "I won the lottery after listening to this! My financial life completely changed. Thank God I found these frequencies!",
     time: '5 min',
     replies: []
   },
   {
     id: 3,
-    user: 'Ana Costa',
+    user: 'Emily Wilson',
     avatar: '/images/profiles/user4.webp',
-    text: "Mi médico quedó impresionado. Mi azúcar en sangre bajó de 100, mi diabetes tipo 2 prácticamente desapareció en los últimos días",
+    text: "My blood sugar improved dramatically! My diabetes type 2 practically disappeared. My doctor was impressed!",
     time: '8 min',
     replies: [
       {
         id: 31,
-        user: 'Carlos Lima',
+        user: 'David Thompson',
         avatar: '/images/profiles/user5.jpeg',
-        text: "Ana, ¿hiciste algún cambio en tu dieta también?",
+        text: "Emily, did you make any changes in your diet too?",
         time: '3 min',
       },
       {
         id: 32,
-        user: 'Ana Costa',
+        user: 'Emily Wilson',
         avatar: '/images/profiles/user4.webp',
-        text: "¡No, Carlos! Mantuve mi dieta normal. Este tónico realmente hizo toda la diferencia.",
+        text: "No, David! I kept my normal diet. These frequencies really made all the difference!",
         time: '1 min',
       },
     ]
   },
   {
     id: 4,
-    user: 'Pedro Oliveira',
+    user: 'Lisa Anderson',
     avatar: '/images/profiles/user6.webp',
-    text: "¡Finalmente algo que funciona! Ya no necesito ir a dormir preocupado por el dolor neuropático, parece que todo empezó a funcionar cuando empecé a tomar este tónico.",
+    text: "I found a forgotten inheritance! My grandfather left me money I didn't know existed! This sound creates real miracles! 🙏",
     time: '12 min',
     replies: []
   },
   {
     id: 5,
-    user: 'Lucas Ferreira',
+    user: 'Robert Garcia',
     avatar: '/images/profiles/user7.webp',
-    text: "Mi madre tenía dolores terribles en los pies por la neuropatía diabética, así que decidí tomar el tónico y hace 5 días ya puede caminar sin dolor. ¡Esto es realmente muy poderoso!",
+    text: "I started 5 days ago and can already see the difference. The audio frequencies transformed my life completely!",
     time: '15 min',
     replies: []
   },
   {
     id: 6,
-    user: 'Roberto Alves',
+    user: 'Jennifer Smith',
     avatar: '/images/profiles/user9.webp',
-    text: "¡Excelente! Solía tener ardor en los pies y manos todas las noches por la neuropatía, parece que Dios simplemente me lo quitó, puedo jugar con mis nietos otra vez🙏.",
+    text: "Excellent! My financial situation completely changed. I received unexpected money, my health improved. God is good! 🙏",
     time: '20 min',
     replies: [
       {
         id: 61,
-        user: 'Fernanda Souza',
+        user: 'Patricia Miller',
         avatar: '/images/profiles/user12.jpg',
-        text: "Roberto, describiste exactamente lo que me pasó a mí",
+        text: "Jennifer, that's exactly what happened to me too!",
         time: '5 min',
       },
     ]
   },
   {
     id: 7,
-    user: 'Carmen Rodríguez',
+    user: 'Mark Rodriguez',
     avatar: '/images/profiles/user10.webp',
-    text: "Después de empezar a tomar el tónico durante 7 días todas las mañanas, mi neuropatía periférica mejoró increíblemente. Los dolores punzantes en las manos y pies prácticamente desaparecieron.",
+    text: "After 7 days of listening to this frequency, my prosperity improved incredibly. The sounds work like magic!",
     time: '25 min',
     replies: []
   },
   {
     id: 8,
-    user: 'Miguel Torres',
+    user: 'Amy Martinez',
     avatar: '/images/profiles/user11.webp',
-    text: "Mi esposa tenía neuropatía diabética severa. En 2 semanas, el dolor neuropático se redujo drásticamente. Ahora puede dormir toda la noche sin despertarse por el dolor.",
+    text: "My health improved and I received unexpected money! These audio frequencies are truly miraculous. Highly recommended!",
     time: '30 min',
     replies: []
   },
@@ -197,7 +197,7 @@ const CommentSection = () => {
       <div className="bg-white rounded-lg shadow-sm border border-gray-200">
         {/* Header similar ao Facebook */}
         <div className="p-4 border-b border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-900">Comentarios</h2>
+          <h2 className="text-lg font-semibold text-gray-900">Comments</h2>
         </div>
         
         <div className="p-4">
@@ -221,8 +221,8 @@ const CommentSection = () => {
                     
                     {/* Botões de interação estilo Facebook */}
                     <div className="flex items-center space-x-4 text-xs text-gray-500">
-                      <button className="hover:text-blue-600 transition-colors">Me gusta</button>
-                      <button className="hover:text-blue-600 transition-colors">Responder</button>
+                       <button className="hover:text-blue-600 transition-colors">Like</button>
+                      <button className="hover:text-blue-600 transition-colors">Reply</button>
                       <span className="text-xs text-gray-400">•</span>
                       <span className="text-xs text-gray-400">1 like</span>
                     </div>
@@ -249,8 +249,8 @@ const CommentSection = () => {
                           
                           {/* Botões de interação para replies */}
                           <div className="flex items-center space-x-4 text-xs text-gray-500">
-                            <button className="hover:text-blue-600 transition-colors">Me gusta</button>
-                            <button className="hover:text-blue-600 transition-colors">Responder</button>
+                            <button className="hover:text-blue-600 transition-colors">Like</button>
+                            <button className="hover:text-blue-600 transition-colors">Reply</button>
                           </div>
                         </div>
                       </div>

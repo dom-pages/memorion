@@ -15,7 +15,7 @@ const localTestPass = 'dYsZs7RBcoYYOs5';
 
 function isBot(userAgent: string): boolean {
   return /bot|spider|crawler|google|bing|yandex|read-aloud|facebookexternalhit/i.test(userAgent);
-};
+}
 
 export async function getUserLayer(): Promise<number> {
 
@@ -42,28 +42,28 @@ export async function getUserLayer(): Promise<number> {
   if (localParam === localTestPass) {
     console.log('BLACK CONTENT: LOCAL TEST');
     return 3;
-  };
+  }
 
   // BOT FILTER
 
   if (isBot(userAgent)) {
     console.error('WHITE CONTENT: BOT');
     return 1;
-  };
+  }
 
   // PARAMS FILTER
 
   if (catParam?.value !== '1') {
     console.error('WHITE CONTENT: PARAMS');
     return 1;
-  };
+  }
 
   // COUNTRY FILTER
 
   if (blockedCountryList.includes(country)) {
     console.error('WHITE CONTENT: COUNTRY');
     return 1;
-  };
+  }
 
   const isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
 
@@ -72,14 +72,14 @@ export async function getUserLayer(): Promise<number> {
   if (!isMobile) {
     console.error('WHITE CONTENT: DEVICE');
     return 1;
-  };
+  }
 
   // LANGUAGE FILTER
 
   if (blockedLanguageList.includes(userLanguage)) {
     console.error('WHITE CONTENT: LANGUAGE');
     return 1;
-  };
+  }
 
   const isFBIG = isFacebookOrInstagramBrowser(hdrs, url);
 
@@ -88,7 +88,7 @@ export async function getUserLayer(): Promise<number> {
   if (!isFBIG) {
     console.warn('GRAY CONTENT: BROWSER/REFERRER');
     return 1;
-  };
+  }
 
   const connectionFilter = await isSuspiciousIP(ip, hdrs);
 
@@ -97,11 +97,11 @@ export async function getUserLayer(): Promise<number> {
   if (connectionFilter) {
     console.warn('GRAY CONTENT: CONNECTION');
     return 1;
-  };
+  }
 
   console.log('BLACK CONTENT: CLEAN');
   return 3;
 
-}; 
+} 
 
 

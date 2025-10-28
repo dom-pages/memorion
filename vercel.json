@@ -1,5 +1,5 @@
 {
-  "name": "neurosalud-site",
+  "name": "memorion",
   "version": 2,
   "builds": [
     {
@@ -14,8 +14,8 @@
     }
   ],
   "env": {
-    "NEXT_PUBLIC_DOMAIN": "neurosalud.site",
-    "NEXT_PUBLIC_SITE_URL": "https://neurosalud.site"
+    "NEXT_PUBLIC_DOMAIN": "healthprosperity.site",
+    "NEXT_PUBLIC_SITE_URL": "https://healthprosperity.site"
   },
   "headers": [
     {
