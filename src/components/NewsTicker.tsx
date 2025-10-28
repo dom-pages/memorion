@@ -6,7 +6,7 @@ export default function NewsTicker() {
       <div className="flex justify-center items-center">
         <div className="flex items-center">
           <div className="w-2 h-2 bg-red-500 rounded-full mr-2 animate-pulse"></div>
-          <span className="text-sm font-medium">SECRET REVEALED – LIVE COVERAGE</span>
+          <span className="text-sm font-medium">SECRETO REVELADO - COBERTURA EN VIVO</span>
         </div>
       </div>
     </div>

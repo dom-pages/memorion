@@ -27,14 +27,14 @@ const ViewerCounter = () => {
   if (!mounted) {
     return (
       <div className="text-center my-4 text-sm text-gray-600">
-        <p><span className="text-[#D9534F] font-bold">71.781</span> people are watching now</p>
+        <p><span className="text-[#D9534F] font-bold">71.781</span> personas están viendo ahora</p>
       </div>
     );
   }
 
   return (
     <div className="text-center my-4 text-sm text-gray-600">
-      <p><span className="text-[#D9534F] font-bold">{viewers.toLocaleString('pt-BR')}</span> people are watching now</p>
+      <p><span className="text-[#D9534F] font-bold">{viewers.toLocaleString('pt-BR')}</span> personas están viendo ahora</p>
     </div>
   );
 };

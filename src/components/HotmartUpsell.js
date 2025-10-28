@@ -32,10 +32,10 @@ export default function HotmartUpsell({ black }) {
       {black && (
         <>
           <div className="flex top-0 w-full justify-center items-end absolute text-center px-5 pt-5 pb-3 z-50 text-gray-950 bg-[#F7F9FA]">
-            <span className="text-xs font-semibold uppercase">Click the button to receive now! 👇</span>
+            <span className="text-xs font-semibold uppercase">¡Haz clic en el botón para recibir ahora! 👇</span>
           </div>
           <div className="flex bottom-0 w-full justify-center items-start absolute text-center px-5 pt-3 pb-5 z-50 text-gray-950 bg-[#F7F9FA]">
-            <span className="text-xs font-semibold uppercase">We are excited to start! 🎉</span>
+            <span className="text-xs font-semibold uppercase">¡Estamos emocionados de comenzar! 🎉</span>
           </div>
           {loading && (
             <div className="flex justify-center items-center top-0 w-full h-full absolute text-center z-40 text-gray-950 bg-[#F7F9FA]">
@@ -53,3 +53,5 @@ export default function HotmartUpsell({ black }) {
     </div>
   );
 }
+
+
