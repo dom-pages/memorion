@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { UTMifyPixel } from '@/components/UTMifyPixel';
 import styles from './Black.module.css';
 
 export default function Black() {
@@ -51,6 +52,7 @@ export default function Black() {
 
   return (
     <>
+      <UTMifyPixel />
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@300;400;600&display=swap');
       `}</style>
@@ -59,7 +61,7 @@ export default function Black() {
           {[...Array(6)].map((_, i) => (
             <div key={i} className={styles.particle} style={{ left: `${(i + 1) * 15}%` }} />
           ))}
-        </div>
+        </div>''
 
         <div className={styles.container}>
           {step === 'age' && (
@@ -209,3 +211,7 @@ export default function Black() {
     </>
   );
 }
+
+
+
+

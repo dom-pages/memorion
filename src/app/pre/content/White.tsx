@@ -1,10 +1,12 @@
 'use client';
 
 import React from 'react';
+import { UTMifyPixel } from '@/components/UTMifyPixel';
 
 const VSLWhite = () => {
   return (
     <div className="w-full">
+      <UTMifyPixel />
       {/* Warning Bar Roxo */}
       <div className="w-full bg-purple-600 py-3">
         <div className="max-w-7xl mx-auto px-4 text-center">
